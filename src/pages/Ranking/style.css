@@ -1,0 +1,104 @@
+.RanksContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 2%;
+}
+
+.Rank1 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    width: 100%;
+    border: 3px solid #abdb25;
+    border-radius: 20px;
+    margin: 5%;
+    margin-left: 0px;
+}
+
+.Rank2 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    width: 100%;
+    border: 3px solid #ffd41f;
+    border-radius: 20px;
+    margin: 5%;
+    margin-left: 0px;
+}
+
+.Rank3 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    width: 100%;
+    border: 3px solid #e30842;
+    border-radius: 20px;
+    margin: 5%;
+    margin-left: 0px;
+}
+
+.RankA {
+    margin: 5%;
+    width: 30%;
+    text-align: center;
+}
+
+h1 {
+    text-align: center;
+}
+
+.Ranking {
+}
+
+.ImgText Img{
+    width: 20%;
+
+}
+
+.ImgText h1 {
+    margin-left: 2%;
+}
+
+.ImgText {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.RankTextImage {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 3% 2%;
+    padding-bottom: 0%;
+}
+
+.RankTextImage h1 {
+    margin-left: 1%;
+}
+
+
+.BulletinBoard {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.BulletinBoardIn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 3px solid grey;
+    border-radius: 7px;
+    margin-right: 0px;
+    width: 60%;
+    margin-bottom: 3%;
+    text-align: center;
+}
+
+

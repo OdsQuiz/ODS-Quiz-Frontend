@@ -1,0 +1,42 @@
+.Header{
+    -webkit-box-shadow: 0px 5px 12px 1px rgba(0,0,0,0.35); 
+    box-shadow: 0px 5px 12px 1px rgba(0,0,0,0.35);      
+    /* font-family: 'In'; */
+}
+
+.Header-elements{
+    display: flex;
+    justify-content: space-between;
+}
+
+.Header-elements img{
+    width: 8vw;
+    margin-left: 3%;
+    
+}
+
+.Header-elements .linkContainer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 5%;
+}
+
+.Header-elements .linkContainer a{
+    font-size: 30px;
+    padding: 20px 30px;
+    border-radius: 15px;
+    background-color: #fff;
+    margin: 10px;
+    text-decoration: none;
+    color: #000;
+}
+
+.Header-elements .linkContainer a:hover{
+    background-color: #ccc;
+    transition: 0.5s;
+}
+
+.Header {
+    margin: 0px;
+}

@@ -1,0 +1,14 @@
+.ODSPoints{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 20px;
+}
+
+.ODSPoints p {
+    margin-left: 10px;
+}
+
+.ODSPoints img{
+    width: 30%;
+}
