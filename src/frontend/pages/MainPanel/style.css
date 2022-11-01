@@ -1,0 +1,65 @@
+.MainPanel {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+
+    background-image: url("../../assets/backgroundQuiz.svg");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.MainPanelContainer {
+    background-color: #fff;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    width: 50%;
+    border: 1px solid grey;
+    border-radius: 20px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    margin: 20px;
+}
+
+.MainPanelContainer a{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 60%;
+    height: 6vh;
+    border-radius: 20px;
+    border: 1px solid grey;
+    margin-top: 20px;
+    cursor: pointer;
+    text-decoration: none;
+    background-color: green;
+    color: #fff;
+}
+
+.MainPanelContainer a:hover{
+    opacity: 0.8;
+    transition: 0.3s;
+}
+
+.MainPanelContainer button{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 60%;
+    height: 6vh;
+    border-radius: 20px;
+    border: 1px solid grey;
+    margin-top: 20px;
+    cursor: pointer;
+    text-decoration: none;
+    color: #fff;
+    background-color: red;
+    margin-left: 10px;
+}
+
+.MainPanelContainer button:hover{
+    opacity: 0.8;
+    transition: 0.3s;
+}

@@ -1,0 +1,26 @@
+.Result {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    margin-top: 10px;
+}
+
+.Result .Points {
+    display: grid;
+    grid-template-columns: auto auto auto auto;
+    margin-left: 5%;
+    margin-right: 5%;
+    margin-top: 3%;
+}
+
+.ResultDetail {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+}
+
+
+

@@ -1,0 +1,71 @@
+.SignInComunity {
+    background-color: #fff;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    width: 30%;
+    border: 1px solid grey;
+    border-radius: 20px;
+    padding-top: 20px;
+}
+
+.SignIn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+
+    background-image: url("../../assets/backgroundQuiz.svg");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.SignInComunity .InputArea{
+    /* align-items: center; */
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    width: 90%;
+}
+
+.SignInComunity .inputText{
+    margin-top: 2%;
+    margin-bottom: 7%;
+    width: calc(100% - 20px);
+    padding: 0;
+    height: 6vh;
+    border-radius: 20px;
+    border: 1px solid grey;
+    padding-left: 20px;
+}
+
+.SignInComunity button{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 70%;
+    height: 6vh;
+    border-radius: 20px;
+    border: 1px solid grey;
+    margin-bottom: 20px;
+    cursor: pointer;
+    text-decoration: none;
+    color: #000;
+}
+
+.SignInComunity button:hover{
+    background-color: #037DCC;
+    transition: 0.3s;
+    color: #fff;
+}
+
+.SignInComunity .Confirm{
+    display: flex;
+    width: 90%;
+    margin-bottom: 20px;
+}
+
+.SignInComunity .Confirm .CheckBox{
+    margin-right: 10px;
+}

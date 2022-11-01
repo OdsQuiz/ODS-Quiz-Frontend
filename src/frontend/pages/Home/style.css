@@ -1,0 +1,97 @@
+
+
+.Home .Banner{
+    margin-top: 20px;
+    background-image: url('../../assets/bannerODS.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 80vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.Home .Banner a, .Home .Content a{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin:40px;
+    width: 20%;
+    height: 15%;
+    border-radius: 20px;
+    font-size: 1em;
+    border: 0;
+    font-size: 30px;
+    background-color: #cccccc;
+    font-weight: 500;
+    text-decoration: none;
+    color: #000;
+}
+
+.Home .Banner a:hover, .Home .Content a:hover{
+   background-color: #cccccc;
+   color: #fff;
+   transition: 0.7s;
+}
+
+.Home .Banner img{
+   height: 50%;
+   
+}
+
+.Home .Content{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    margin-top: 20px;
+}
+
+.Home .OdsContent{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    background-color: #fff;
+    width: 100%;
+    margin-bottom: 3%;
+    text-align: center;
+}
+
+.Home .OdsContent img{
+    width: 20%;
+}
+
+.Home .OdsContent h1{
+    padding-bottom: 10px;
+    margin-bottom: 30px;
+    border-bottom: 3px solid #037DCC;
+}
+
+.OdsAll {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin: 5%;
+    margin-bottom: 0;
+}
+
+.Home .Content a{
+    text-align: center;
+    border-radius: 20px;
+    border: 3px solid #037DCC;
+    font-size: 30px;
+    padding: 20px 30px;
+    background-color: #fff;
+    font-weight: 500;
+    text-decoration: none;
+    color: #000;
+}
+
+.Home .Content a:hover{
+    background-color: #037DCC;
+    color: #fff;
+    transition: 0.7s;
+ }
+

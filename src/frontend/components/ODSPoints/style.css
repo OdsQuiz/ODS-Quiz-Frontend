@@ -1,0 +1,50 @@
+.ODSPoints{
+    display: flex;
+    align-items: center;
+    width: 100%;
+}
+
+.ODSPoints .TextArea{
+    width: 100%;
+}
+
+.ODSPoints .TextArea p{
+    text-align: start;
+    color: #fff;
+
+}
+
+.ODSPoints .TextArea h1{
+    text-align: start;
+    color: #fff;
+}
+
+.ODSPoints .TextArea a{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40%;
+    height: 6vh;
+    border-radius: 20px;
+    border: 1px solid #fff;
+    margin-top: 20px;
+    cursor: pointer;
+    text-decoration: none;
+    color: #fff;
+}
+
+.ODSPoints .TextArea a:hover{
+    background-color: #fff;
+    transition: 0.3s;
+    color: #000;
+}
+
+.ODSPoints p {
+    width: 40%;
+    text-align: center;
+    color: #fff;
+}
+
+.ODSPoints img{
+    width: 30%;
+}
