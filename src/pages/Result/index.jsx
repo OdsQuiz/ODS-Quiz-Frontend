@@ -57,30 +57,18 @@ const Result = () => {
     const RenderMaxMin = () =>{
         let max = result[0]
         let idMax = 0
-        let min = result[0]
-        let idMin = 0
 
         for(let i = 0; i < result.length; i++){
             if(result[i] > max){
                 max = result[i]
                 idMax = i
             }
-
-            if(result[i] < min){
-                min = result[i]
-                idMin = i
-            }
         }
 
         return(
             <>
                 <h2>Maior Pontuação</h2>
-
-                <ODSPoints id={idMax+1} image={images[idMax]} points={result[idMax]} color={colors[idMax]} description={descriptions[idMax]}/>
-
-                <h2>Menor Pontuação</h2>
-
-                <ODSPoints id={idMin+1} image={images[idMin]} points={result[idMin]} color={colors[idMin]} description={descriptions[idMin]}/>
+                <ODSPoints id={idMax+1} image={images[idMax]} points={`${result[idMax]} pts`} color={colors[idMax]} description={descriptions[idMax]}/>
             </>
         )
     }
@@ -92,7 +80,7 @@ const Result = () => {
                     <h1>Resultado Final</h1>
                     <div className="Points">
                         {images.map((image, key) => {
-                            return <ODSPoints key={key} image={image} points={result[key]} color={colors[key]} />
+                            return <ODSPoints key={key} image={image} points={result[key] == 0 ? 'Não obteve pontos' : `${result[key]} pts`} color={colors[key]} />
                         })}
                         
                     </div>
@@ -103,7 +91,7 @@ const Result = () => {
 
                     <div className="RedirectContainer">
                         <Link to='/ranking'>Ir para Ranking</Link>
-                        <Link to='/ranking'>Ver base de dados</Link>
+                        <Link to='/dados'>Ver base de dados</Link>
                     </div>
                    
                 </>

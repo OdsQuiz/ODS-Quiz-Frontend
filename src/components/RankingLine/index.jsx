@@ -4,7 +4,7 @@ import './style.css'
 const RankingLine = ({position, name, points}) => {
     return(
         <div className="RankingLine">
-            <p>{position}° {name} {points} <small>pts</small></p>
+             <span className="position">{position}°</span> <span className="name">{name}</span> <span className="points">{points}</span>
         </div>
     )
 }

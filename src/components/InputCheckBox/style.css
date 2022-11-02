@@ -1,0 +1,17 @@
+.InputCheckBox{
+    width: 90%;
+}
+
+.InputCheckBox p{
+    background-color: #037DCC;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 10px;
+    margin-top: 20px;
+    border-radius: 7px;
+    color: #fff;  
+}
+
+.InputCheckBox label{
+    margin-left: 15px;
+}

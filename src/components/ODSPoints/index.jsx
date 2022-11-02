@@ -8,12 +8,12 @@ const ODSPoints = ({image, points, color, description, id}) => {
             { description ?
                  <div className="TextArea">
                     <h1>Pontuação</h1>
-                    <p>{points} %</p>
+                    <p>{points}</p>
                     <p>{description}</p>
                     <a target="_blank" href={`https://odsbrasil.gov.br/objetivo/objetivo?n=${id}`}>Estágio Atual no Brasil e indicadores</a>
                 </div>
                 :
-                <p>{points} %</p>
+                <p>{points}</p>
             }
            
         </div>

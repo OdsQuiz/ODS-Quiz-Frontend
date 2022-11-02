@@ -1,7 +1,25 @@
-*{
-  font-family: 'Inter', sans-serif;
+@font-face {
+  font-family: 'sfprobold';
+  src: url(assets/fonts/SF-Pro-Text-Bold.otf);
 }
+
+@font-face {
+  font-family: 'sfpromedium';
+  src: url(assets/fonts/SF-Pro-Text-Medium.otf);
+}
+@font-face {
+  font-family: 'sfproregular';
+  src: url(assets/fonts/SF-Pro-Text-Regular.otf);
+}
+@font-face {
+  font-family: 'sfproheavy';
+  src: url(assets/fonts/SF-Pro-Text-Heavy.otf);
+}
+
+
+
 
 .App{
   height: 100vh;
+ 
 }

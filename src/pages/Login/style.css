@@ -1,8 +1,93 @@
 .Login {
     display: flex;
     justify-content: center;
+    align-items: center;
     min-height: 100vh;
     border: 0;
+    background-color: #fff;
+}
+
+.Login .card-login{
+    background-color: #e8e8e8;
+    border-radius: 2rem;
+    padding-top: 4rem;
+    padding-bottom: 4rem;
+    width: 30vw;
+   
+
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    padding-right: 2rem;
+    padding-left: 2rem;
+}
+
+.card-login img{
+    width: 30%;
+}
+
+.card-login h4{
+    font-family: 'sfprobold';
+}
+
+.card-login .input-area{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    align-items: center;
+    margin-top: 1rem;
+}
+.card-login .input-area .label{
+    width: 90%;
+    font-size: 1.2rem;
+    display: flex;
+    justify-content: start;
+    font-family: 'sfpromedium';
+}
+
+.card-login button{
+    width: 50%;
+    margin-top: 2rem;
+    border: none;
+    height: 3rem;
+    border-radius: 1rem;
+    font-family: 'sfprobold';
+    color: white;
+    font-size: 1.2rem;
+    background-color: #00bc38;
+}
+.card-login .Confirm{
+    display: flex;
+    align-items: center;
+    width: 90%;
+    margin-top: 0.3rem;
+    font-family: 'sfproregular';
+}
+
+.card-login .Confirm label{
+    margin-left: 0.3rem;
+}
+
+.card-login .cadastre{
+    margin-top: 2rem;
+    text-decoration: none;
+    color: black;
+    font-family: 'sfpromedium';
+}
+
+.card-login .forgot-password{
+    text-decoration: none;
+    color: gray;
+    font-family: 'sfpromedium';
+}
+.card-login .input-area input{
+    border: none;
+    outline: none;
+    height: 3rem;
+    padding: 0.5rem;
+    font-size: 1.5rem;
+    width: 90%;
+    border-radius: 0.6rem;
 }
 
 .LoginComunity {
@@ -11,9 +96,9 @@
     display: flex;
     justify-content: center;
     flex-direction: column;
-    width: 50%;
     border: 0;
     padding-top: 20px;
+    
 }
 
 .LoginComunity img{

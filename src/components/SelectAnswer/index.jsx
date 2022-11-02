@@ -19,6 +19,7 @@ const SelectAnswer = ({getAnswers, ods}) => {
                 <option value="2">Opção B</option>
                 <option value="3">Opção C</option>
                 <option value="4">Opção D</option>
+                <option value="5">Opção E</option>
             </select>
         </div>
     )

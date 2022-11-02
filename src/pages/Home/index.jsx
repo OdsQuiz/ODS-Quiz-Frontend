@@ -2,20 +2,32 @@ import React, { useContext, useState } from "react";
 
 import { Link } from "react-router-dom";
 import './style.css'
-
+import SliderLogo from "../../components/SliderLogo/SliderLogo";
 import objectives from '../../assets/odsImage.png'
+import sdgCircle from '../../assets/sdgCircle.png'
 
 const Home = () => {
     return(
         <div className="Home">
-            <div className="Content">
+            {/* <div className="Content">
                 <h1>Quero Participar</h1>
                 <p>Responda algumas perguntas e descubra o quanto você contribui para as ODS</p>
-            </div>
+            </div> */}
             
-            <div className="Banner">
-                <Link to='/participar/login'>Participar</Link>
+            <div className="home-row">
+                <div className="home-column img-column">
+                    <img  class='logo-center-rotating' src="https://cdn.discordapp.com/attachments/1037486089801306113/1037500528248246332/odsquizlogotext.png" alt="" />
+                    <img src={sdgCircle} className='rotating' alt="" />
+                </div>
+                <div className="home-column text-column">
+                    <h2>Descubra o quanto você contribui para o desenvolvimento sustentável no Brasil</h2>
+                    <p>Responda algumas perguntas e descubra o quanto você contribui para as iniciativas da ODS</p>
+                    <Link to='/participar/login' className='home-button'>Responder agora</Link>
+                </div>
             </div>
+            {/* <div className="Banner">
+                <Link to='/participar/login'>Participar</Link>
+            </div> */}
 
             <div className="OdsAll">
                 <div className="OdsContent">
@@ -30,18 +42,16 @@ const Home = () => {
                     
                     <p>Os Objetivos de Desenvolvimento Sustentável (ODS), também conhecidos como Objetivos Globais, foram adotados pelas Nações Unidas em 2015 como um apelo universal à ação para acabar com a pobreza, proteger o planeta e garantir que até 2030 todas as pessoas desfrutem de paz e prosperidade. Os 17 ODS são integrados – eles reconhecem que a ação em uma área afetará os resultados em outras, e que o desenvolvimento deve equilibrar a sustentabilidade social, econômica e ambiental.</p>
 
-                    <img src={objectives} />
+                  
 
                 </div>
-            </div>
-
-            
+            </div>            
+                <SliderLogo></SliderLogo>
 
             <div className="Content">
-                <a target="_blank"  href="https://odsbrasil.gov.br/">Saiba mais</a>
+                <a target="_blank"  href="https://odsbrasil.gov.br/"><img src="https://cdn.discordapp.com/attachments/1037486089801306113/1037492045343903875/8666682_external_link_icon.png" alt="" />Saiba mais em odsbrasil.gov.br</a>
             </div>
 
-            
         </div>
     )
 }

@@ -19,7 +19,7 @@ const Ranking = () => {
             <div className="RanksContainer">
                 <div className="RankA">
 
-                    <div className="ImgText"><img src={People} alt="" /><h1>Comunidade</h1></div>
+                    <div className="ImgText"><img src={People} alt="" />Comunidade</div>
                     
                     <div className="Rank1">
                         <RankingLine position={1} name="Dona Maria" points={2100}/>
@@ -30,22 +30,10 @@ const Ranking = () => {
                     </div>
                 </div>
 
-                <div className="RankA">
-
-                    <div className="ImgText"><img src={Agent} alt="" /><h1>Agente</h1></div>
-                    
-                    <div className="Rank2">
-                        <RankingLine position={1} name="A" points={2100}/>
-                        <RankingLine position={2} name="B" points={1900}/>
-                        <RankingLine position={3} name="C" points={1500}/>
-                        <RankingLine position={4} name="D" points={1300}/>
-                        <RankingLine position={5} name="E" points={900}/>
-                    </div>
-                </div>
 
                 <div className="RankA">
                     <div className="ImgText">
-                        <img src={EnterPrise} alt="" /><h1>Instituição</h1>
+                        <img src={EnterPrise} alt="" />Instituição
                     </div>
 
                     <div className="Rank3">

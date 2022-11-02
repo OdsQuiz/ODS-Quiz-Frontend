@@ -6,6 +6,7 @@ import { AuthProvider } from './contexts/auth'
 
 import Header from './components/Header'
 import Footer from './components/Footer'
+import PreHeader from './components/PreHeader'
 
 import './App.css'
 
@@ -15,6 +16,7 @@ function App() {
     <div className="App">
       <AuthProvider>
         <BrowserRouter>
+          <PreHeader />
           <Header />
           <ContentRoutes />
           <Footer />

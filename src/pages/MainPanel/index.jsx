@@ -26,8 +26,9 @@ const MainPanel = () => {
 
                     <p></p>
     
-                    <Link to='/quiz'>Formulário Individual</Link>
-                    <Link to='/quiz'>Cadastrar Iniciativa</Link>
+                    <Link to='/quiz/individual'>Formulário Individual</Link>
+                    <Link to='/quiz/iniciativa'>Cadastrar Iniciativa</Link>
+                    <Link>Minhas Iniciativas</Link>
 
                     <button onClick={() => logOutHandler()}>Sair da conta</button>
     

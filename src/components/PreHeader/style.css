@@ -1,0 +1,28 @@
+.PreHeader-All {
+    width: 100%;
+    background-color: rgb(240, 233, 233);
+    
+}
+
+.PreHeader-elements {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.PreHeader-elements img{
+    width: 4vw;
+    margin-left: 5%;
+}
+
+.Links-cont a{
+    margin-right: 7%;
+    text-decoration: none;
+    color: grey;
+    font-weight: 400;
+
+}
+
+.Links-cont {
+    width: 21%;
+}

@@ -1,0 +1,58 @@
+.Initiative {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+
+    background-image: url("../../assets/backgroundQuiz.svg");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.InitiativeContainer {
+    background-color: #fff;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    width: 50%;
+    border: 1px solid grey;
+    border-radius: 20px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    margin: 20px;
+}
+
+.InitiativeContainer .InitiativeArea{
+    width: 90%;
+}
+
+.InitiativeContainer .InitiativeArea p{
+    background-color: #037DCC;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 10px;
+    margin-top: 20px;
+    border-radius: 7px;
+    color: #fff;
+}
+
+.InitiativeContainer button{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 70%;
+    height: 6vh;
+    border-radius: 20px;
+    border: 1px solid grey;
+    margin-top: 20px;
+    cursor: pointer;
+    text-decoration: none;
+    color: #000;
+}
+
+.InitiativeContainer button:hover{
+    background-color: #037DCC;
+    transition: 0.3s;
+    color: #fff;
+}

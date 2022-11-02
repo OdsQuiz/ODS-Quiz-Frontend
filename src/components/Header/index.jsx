@@ -9,10 +9,11 @@ const Header = () => {
     return(
         <div className="Header">
             <div className="Header-elements">
-                <img src={HackLogo} alt="" />
+                <img src='https://cdn.discordapp.com/attachments/1037486089801306113/1037500528587976784/odsquiztext.png' alt="" />
                 <div className="linkContainer">
                     <Link to='/'>Home</Link>
                     <Link to='/ranking'>Ranking</Link>
+                    <Link to='/dados'>Iniciativas</Link>
                 </div>
             </div>    
         </div>

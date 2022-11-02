@@ -6,8 +6,10 @@ import SignIn from "../../pages/SignIn";
 import Ranking from "../../pages/Ranking";
 import Result from "../../pages/Result";
 import Quiz from "../../pages/Quiz";
+import Initiative from "../../pages/Initiative";
 import Login from "../../pages/Login";
 import MainPanel from "../../pages/MainPanel";
+import DataShow from "../../pages/DataShow";
 import { AuthContext } from "../../contexts/auth";
 import { ResultProvider } from "../../contexts/results";
 
@@ -40,7 +42,9 @@ const ContentRoutes = () => {
                     <Route path="/ranking" element={<Ranking />} />
                     <Route path="/resultado" element={<Result />} />
                     <Route path="/painel" element={<MainPanel />} />
-                    <Route path="/quiz" element={<Quiz />} /> 
+                    <Route path="/quiz/individual" element={<Quiz />} />
+                    <Route path="/quiz/iniciativa" element={<Initiative />} /> 
+                    <Route path="/dados" element={<DataShow />} /> 
                 </Routes>
             </ResultProvider>
         </div>

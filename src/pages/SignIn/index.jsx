@@ -2,6 +2,7 @@ import React, { useContext, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../contexts/auth";
 import { createUsers } from "../../services/api";
+import HackLogo from '../../assets/hack2030.png'
 import './style.css'
 
 const SignIn = () => {
@@ -20,7 +21,7 @@ const SignIn = () => {
         if(name && email && password && address && terms){
             try {
                 const request = await createUsers(name, email, password, address)
-                login(email, password)
+                await login(email, password)
                 navigate('/painel')
             } catch (error) {
                 setTryAgain(false)
@@ -34,10 +35,11 @@ const SignIn = () => {
 
     return(
         <div className="SignIn">
-            <div className="SignInComunity">
-
-                <div className="InputArea">
-                    <span>Nome Completo</span>
+            <div className="card-login">
+                <img src={HackLogo} />
+                <h4>Cadastre-se grátis!</h4>
+                <div className="input-area">
+                    <span className="label">Nome Completo</span>
                     <input 
                         type="text" 
                         className="inputText"
@@ -46,8 +48,8 @@ const SignIn = () => {
                     />
                 </div>
 
-                <div className="InputArea">
-                    <span>Email</span> 
+                <div className="input-area">
+                    <span className="label">Email</span> 
                     <input 
                         type="text" 
                         className="inputText"
@@ -55,8 +57,8 @@ const SignIn = () => {
                         onChange={(e) => setEmail(e.target.value)}/>
                 </div>
 
-                <div className="InputArea">
-                    <span>Endereço</span> 
+                <div className="input-area">
+                    <span className="label">Endereço</span> 
                     <input 
                         type="text" 
                         className="inputText"
@@ -64,8 +66,8 @@ const SignIn = () => {
                         onChange={(e) => setAddress(e.target.value)}/>
                 </div>
                 
-                <div className="InputArea">
-                    <span>Senha</span> 
+                <div className="input-area">
+                    <span className="label">Senha</span> 
                     <input 
                         type="password" 
                         className="inputText"

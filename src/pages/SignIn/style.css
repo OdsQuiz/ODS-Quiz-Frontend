@@ -10,13 +10,94 @@
     padding-top: 20px;
 }
 
+.SignIn .card-login{
+    background-color: #e8e8e8;
+    border-radius: 2rem;
+    padding-top: 4rem;
+    padding-bottom: 4rem;
+    width: 30vw;
+   
+
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.card-login img{
+    width: 30%;
+}
+
+.card-login h4{
+    font-family: 'sfprobold';
+}
+
+.card-login .input-area{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    align-items: center;
+    margin-top: 1rem;
+}
+.card-login .input-area .label{
+    width: 80%;
+    font-size: 1.2rem;
+    display: flex;
+    justify-content: start;
+    font-family: 'sfpromedium';
+}
+
+.card-login button{
+    width: 50%;
+    margin-top: 2rem;
+    border: none;
+    height: 3rem;
+    border-radius: 1rem;
+    font-family: 'sfprobold';
+    color: white;
+    font-size: 1.2rem;
+    background-color: #00bc38;
+}
+.card-login .Confirm{
+    display: flex;
+    align-items: center;
+    width: 80%;
+    margin-top: 0.3rem;
+    font-family: 'sfproregular';
+}
+
+.card-login .Confirm label{
+    margin-left: 0.3rem;
+}
+
+.card-login .cadastre{
+    margin-top: 2rem;
+    text-decoration: none;
+    color: black;
+    font-family: 'sfpromedium';
+}
+
+.card-login .forgot-password{
+    text-decoration: none;
+    color: gray;
+    font-family: 'sfpromedium';
+}
+.card-login .input-area input{
+    border: none;
+    outline: none;
+    height: 3rem;
+    padding: 0.5rem;
+    font-size: 1.5rem;
+    width: 80%;
+    border-radius: 0.6rem;
+}
+
 .SignIn {
     display: flex;
     justify-content: center;
     align-items: center;
     min-height: 100vh;
 
-    background-image: url("../../assets/backgroundQuiz.svg");
+  
     background-repeat: no-repeat;
     background-size: cover;
 }
