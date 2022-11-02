@@ -8,7 +8,6 @@ export const ResultProvider = ({children}) => {
 
     useEffect(() =>{
         const resultRetrieve = localStorage.getItem('userResult')
-        console.log(resultRetrieve.split(','))
         if(resultRetrieve){
             setResult(resultRetrieve.split(','))
         }
