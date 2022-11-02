@@ -4,6 +4,7 @@
     justify-content: center;
     flex-direction: column;
     margin-top: 10px;
+    min-height: 100vh;
 }
 
 .Result .Points {
@@ -20,7 +21,41 @@
     align-items: center;
     flex-direction: column;
     width: 100%;
+    
 }
+
+.ResultDetail h2{
+    margin-top: 5%;
+}
+
+.Result .RedirectContainer{
+    /* background-color: red; */
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.Result .RedirectContainer a{
+    text-align: center;
+    border-radius: 20px;
+    border: 3px solid #037DCC;
+    font-size: 20px;
+    padding: 20px 30px;
+    background-color: #fff;
+    font-weight: 500;
+    text-decoration: none;
+    color: #000;
+    margin: 20px;
+}
+
+.Result .RedirectContainer a:hover{
+    background-color: #037DCC;
+    color: #fff;
+    transition: 0.7s;
+ }
 
 
 

@@ -14,9 +14,7 @@ const Home = () => {
             </div>
             
             <div className="Banner">
-                <Link to='/participar/login'>Indivíduo</Link>
-                <Link to='/participar/login'>Setor Público</Link>
-                <Link to='/participar/login'>Setor Privado</Link>
+                <Link to='/participar/login'>Participar</Link>
             </div>
 
             <div className="OdsAll">
@@ -40,7 +38,7 @@ const Home = () => {
             
 
             <div className="Content">
-                <Link>Saiba mais</Link>
+                <a target="_blank"  href="https://odsbrasil.gov.br/">Saiba mais</a>
             </div>
 
             

@@ -37,7 +37,7 @@
     color: #fff;
 }
 
-.QuizContainer a{
+.QuizContainer button{
     display: flex;
     align-items: center;
     justify-content: center;
@@ -51,7 +51,7 @@
     color: #000;
 }
 
-.QuizContainer a:hover{
+.QuizContainer button:hover{
     background-color: #037DCC;
     transition: 0.3s;
     color: #fff;

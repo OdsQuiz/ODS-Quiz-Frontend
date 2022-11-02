@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext, useState } from "react";
 import './style.css'
 
 import obs1 from '../../assets/SDG-1.svg'
@@ -20,39 +20,96 @@ import obs16 from '../../assets/SDG-16.svg'
 import obs17 from '../../assets/SDG-17.svg'
 
 import ODSPoints from "../../components/ODSPoints";
+import { ResultContext } from "../../contexts/results";
+import { Link } from "react-router-dom";
 
 
 
 const Result = () => {
-    return(
-        <div className="Result">
-            <h1>Resultado Final</h1>
-            <div className="Points">
-                <ODSPoints image={obs1} points={213} color="#E5243B" />
-                <ODSPoints image={obs2} points={213} color="#DDA83A"/>
-                <ODSPoints image={obs3} points={213} color="#4C9F38"/>
-                <ODSPoints image={obs4} points={213} color="#C5192D"/>
-                <ODSPoints image={obs5} points={213} color="#FF3A21" />
-                <ODSPoints image={obs6} points={213} color="#26BDE2"/>
-                <ODSPoints image={obs7} points={213} color="#FCC30B"/>
-                <ODSPoints image={obs8} points={213} color="#A21942"/>
-                <ODSPoints image={obs9} points={213} color="#FD6925"/>
-                <ODSPoints image={obs10} points={213} color="#DD1367"/>
-                <ODSPoints image={obs11} points={213} color="#FD9D24"/>
-                <ODSPoints image={obs12} points={213} color="#BF8B2E"/>
-                <ODSPoints image={obs13} points={213} color="#3F7E44"/>
-                <ODSPoints image={obs14} points={213} color="#0A97D9"/>
-                <ODSPoints image={obs15} points={213} color="#56C02B"/>
-                <ODSPoints image={obs16} points={213} color="#00689D"/>
-                <ODSPoints image={obs17} points={213} color="#19486A"/>
-            </div>
 
-            <div className="ResultDetail">
+    const images = [obs1, obs2, obs3, obs4, obs5, obs6, obs7, obs8, obs9, obs10, obs11, obs12, obs13, obs14, obs15, obs16, obs17]
+    const colors = [
+        "#E5243B", "#DDA83A", "#4C9F38", "#C5192D", "#FF3A21", "#26BDE2", "#FCC30B", "#A21942", "#FD6925",
+        "#DD1367", "#FD9D24", "#BF8B2E", "#3F7E44", "#0A97D9", "#56C02B", "#00689D", "#19486A"
+    ]
+    const descriptions = [
+        'Acabar com a pobreza em todas as suas formas, em todos os lugares',
+        'Acabar com a fome, alcançar a segurança alimentar e melhoria da nutrição e promover a agricultura sustentável',
+        'Assegurar uma vida saudável e promover o bem-estar para todos, em todas as idades',
+        'Assegurar a educação inclusiva e equitativa e de qualidade, e promover oportunidades de aprendizagem ao longo da vida para todos',
+        'Alcançar a igualdade de gênero e empoderar todas as mulheres e meninas',
+        'Garantir disponibilidade e manejo sustentável da água e saneamento para todos',
+        'Garantir acesso à energia barata, confiável, sustentável e renovável para todos',
+        'Promover o crescimento econômico sustentado, inclusivo e sustentável, emprego pleno e produtivo, e trabalho decente para todos',
+        'Construir infraestrutura resiliente, promover a industrialização inclusiva e sustentável, e fomentar a inovação',
+        'Reduzir a desigualdade dentro dos países e entre eles',
+        'Tornar as cidades e os assentamentos humanos inclusivos, seguros, resilientes e sustentáveis',
+        'Assegurar padrões de produção e de consumo sustentáveis',
+        'Tomar medidas urgentes para combater a mudança do clima e seus impactos (reconhecendo que a Convenção Quadro das Nações Unidas sobre Mudança do Clima [UNFCCC] é o fórum internacional intergovernamental primário para negociar a resposta global à mudança do clima)',
+        'Conservação e uso sustentável dos oceanos, dos mares e dos recursos marinhos para o desenvolvimento sustentável',
+        'Proteger, recuperar e promover o uso sustentável dos ecossistemas terrestres, gerir de forma sustentável as florestas, combater a desertificação, deter e reverter a degradação da terra e deter a perda de biodiversidade',
+        'Promover sociedades pacíficas e inclusivas para o desenvolvimento sustentável, proporcionar o acesso à justiça para todos e construir instituições eficazes, responsáveis e inclusivas em todos os níveis',
+        'Fortalecer os meios de implementação e revitalizar a parceria global para o desenvolvimento sustentável',
+    ]
+    
+    const { result } = useContext(ResultContext)
 
+    const RenderMaxMin = () =>{
+        let max = result[0]
+        let idMax = 0
+        let min = result[0]
+        let idMin = 0
+
+        for(let i = 0; i < result.length; i++){
+            if(result[i] > max){
+                max = result[i]
+                idMax = i
+            }
+
+            if(result[i] < min){
+                min = result[i]
+                idMin = i
+            }
+        }
+
+        return(
+            <>
                 <h2>Maior Pontuação</h2>
 
-                <ODSPoints image={obs6} points={213} color="#26BDE2" description="Garantir a disponibilidade e a gestão sustentável da água potável e do saneamento para todos"/>
-            </div>
+                <ODSPoints id={idMax+1} image={images[idMax]} points={result[idMax]} color={colors[idMax]} description={descriptions[idMax]}/>
+
+                <h2>Menor Pontuação</h2>
+
+                <ODSPoints id={idMin+1} image={images[idMin]} points={result[idMin]} color={colors[idMin]} description={descriptions[idMin]}/>
+            </>
+        )
+    }
+
+    return(
+        <div className="Result">
+            { result ?
+                <>
+                    <h1>Resultado Final</h1>
+                    <div className="Points">
+                        {images.map((image, key) => {
+                            return <ODSPoints key={key} image={image} points={result[key]} color={colors[key]} />
+                        })}
+                        
+                    </div>
+        
+                    <div className="ResultDetail">
+                        <RenderMaxMin />
+                    </div>
+
+                    <div className="RedirectContainer">
+                        <Link to='/ranking'>Ir para Ranking</Link>
+                        <Link to='/ranking'>Ver base de dados</Link>
+                    </div>
+                   
+                </>
+                :
+                null
+            }
             
         </div>
     )

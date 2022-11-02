@@ -17,6 +17,8 @@ export const AuthProvider = ({children}) => {
             setUser(JSON.parse(user))
             api.defaults.headers.Authorization = `Bearer ${token}`
         }
+        
+        setLoading(false)
     }, [])
 
     const login = async (email, password) => {
@@ -27,11 +29,13 @@ export const AuthProvider = ({children}) => {
 
         api.defaults.headers.Authorization = `Bearer ${response.data.token}`
         setUser(response.data.user)
+
     }
 
     const logout = () => {
         localStorage.removeItem('user')
         localStorage.removeItem('token')
+        localStorage.removeItem('userResult')
 
         api.defaults.headers.Authorization = null
 

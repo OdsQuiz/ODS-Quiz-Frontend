@@ -11,7 +11,7 @@
     align-items: center;
 }
 
-.Home .Banner a, .Home .Content a{
+.Home .Banner a{
     display: flex;
     align-items: center;
     justify-content: center;
@@ -22,15 +22,15 @@
     font-size: 1em;
     border: 0;
     font-size: 30px;
-    background-color: #cccccc;
+    background-color: #D43273;
     font-weight: 500;
     text-decoration: none;
-    color: #000;
+    color: #fff;
 }
 
-.Home .Banner a:hover, .Home .Content a:hover{
-   background-color: #cccccc;
-   color: #fff;
+.Home .Banner a:hover{
+   background-color: #fff;
+   color: #000;
    transition: 0.7s;
 }
 

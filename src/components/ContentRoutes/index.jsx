@@ -9,11 +9,15 @@ import Quiz from "../../pages/Quiz";
 import Login from "../../pages/Login";
 import MainPanel from "../../pages/MainPanel";
 import { AuthContext } from "../../contexts/auth";
+import { ResultProvider } from "../../contexts/results";
 
 const ContentRoutes = () => {
     const LoggedRedirection = ({children}) =>{
-        const { authenticated } = useContext(AuthContext)
-
+        const { authenticated, loading } = useContext(AuthContext)
+        console.log(loading)
+        if(loading){
+            return <div>Carregando...</div>
+        }
         if(authenticated){
             return <Navigate to='/painel' />
         }
@@ -28,15 +32,17 @@ const ContentRoutes = () => {
 
     return(
         <div className="Routes">
-            <Routes>
-                <Route path="/" element={<Home />} />
-                <Route path="/participar/login" element={<LoggedRedirection><Login /></LoggedRedirection>} />
-                <Route path="/participar/cadastro" element={<LoggedRedirection><SignIn /></LoggedRedirection>} />
-                <Route path="/ranking" element={<Ranking />} />
-                <Route path="/resultado" element={<Result />} />
-                <Route path="/painel" element={<MainPanel />} />
-                <Route path="/quiz" element={<Quiz />} />
-            </Routes>
+            <ResultProvider>
+                <Routes>
+                    <Route path="/" element={<Home />} />
+                    <Route path="/participar/login" element={<LoggedRedirection><Login /></LoggedRedirection>} />
+                    <Route path="/participar/cadastro" element={<LoggedRedirection><SignIn /></LoggedRedirection>} />
+                    <Route path="/ranking" element={<Ranking />} />
+                    <Route path="/resultado" element={<Result />} />
+                    <Route path="/painel" element={<MainPanel />} />
+                    <Route path="/quiz" element={<Quiz />} /> 
+                </Routes>
+            </ResultProvider>
         </div>
     )
 }

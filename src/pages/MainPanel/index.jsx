@@ -4,6 +4,7 @@ import './style.css'
 import { AuthContext } from "../../contexts/auth";
 import { api } from "../../services/api";
 import { Link, useNavigate } from "react-router-dom";
+import HackLogo from '../../assets/hack2030.png'
 
 
 const MainPanel = () => {
@@ -18,11 +19,15 @@ const MainPanel = () => {
         return(
             <div className="MainPanel">
                 <div className="MainPanelContainer">
-                    <p>Ola, bem vindo {user.name}</p>
+                    <img src={HackLogo} />
+                    <p>Olá, bem vindo {user.name}</p>
 
-                    <p>Responda ao formulário</p>
+                    <p>Responda ao formulário individual ou cadastre uma iniciativa</p>
+
+                    <p></p>
     
-                    <Link to='/quiz'>Acessar formulário</Link>
+                    <Link to='/quiz'>Formulário Individual</Link>
+                    <Link to='/quiz'>Cadastrar Iniciativa</Link>
 
                     <button onClick={() => logOutHandler()}>Sair da conta</button>
     

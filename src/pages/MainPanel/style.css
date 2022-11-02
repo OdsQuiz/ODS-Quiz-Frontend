@@ -23,6 +23,10 @@
     margin: 20px;
 }
 
+.MainPanelContainer img {
+    width: 30%;
+}
+
 .MainPanelContainer a{
     display: flex;
     align-items: center;

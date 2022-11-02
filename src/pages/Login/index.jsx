@@ -32,7 +32,6 @@ const Login = () => {
 
     return(
         <div className="Login">
-            
             <div className="LoginComunity">
                 <h1>Seja bem vindo ao </h1>
                 <img src={HackLogo} />

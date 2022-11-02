@@ -11,7 +11,7 @@
 .ODSPoints .TextArea p{
     text-align: start;
     color: #fff;
-
+     
 }
 
 .ODSPoints .TextArea h1{
@@ -47,4 +47,18 @@
 
 .ODSPoints img{
     width: 30%;
+}
+
+@media screen and (max-width: 900px){
+    .ODSPoints .TextArea p{
+        width: 80%;
+    }
+
+    .ODSPoints .TextArea h1{
+        width: 80%;
+    }
+
+    .ODSPoints .TextArea a{
+        font-size: 10px;
+    }
 }

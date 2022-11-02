@@ -1,11 +1,48 @@
-import React from "react";
+import React, { useContext, useState } from "react";
 import './style.css'
 
-import { Link } from "react-router-dom";
-
+import { useNavigate } from "react-router-dom";
+import { ResultContext } from "../../contexts/results";
 import SelectAnswer from "../../components/SelectAnswer";
 
 const Quiz = () => {
+
+    const [answers, setAnswers] = useState(new Array(17))
+    const { storeResult } = useContext(ResultContext)
+    const navigate = useNavigate()
+
+    const getAnswers = (value, index) => {
+        var auxArray = [...answers]
+        auxArray.splice(index, 1, value)
+        setAnswers(auxArray)
+    }
+
+    const sendDataHandler = () => {
+        
+        const auxResults = new Array(17)
+
+        for (let i = 0; i < auxResults.length; i++){
+            if(answers[i] == '1'){
+                auxResults[i] = 25
+            }
+            else if(answers[i] == '2'){
+                auxResults[i] = 50
+            }
+            else if(answers[i] == '3'){
+                auxResults[i] = 75
+            }
+            else if(answers[i] == '4'){
+                auxResults[i] = 100
+            }
+            else{
+                auxResults[i] = 0
+            }
+        }
+
+        storeResult(auxResults)
+        navigate('/resultado')
+    }
+
     return(
         <div className="Quiz">
             <div className="QuizContainer">
@@ -23,7 +60,7 @@ const Quiz = () => {
 
                     </p>
                 
-                    <SelectAnswer />
+                    <SelectAnswer getAnswers={getAnswers} ods={1}/>
                 </div>
 
                 <div className="QuizArea">
@@ -38,7 +75,7 @@ const Quiz = () => {
                         <br></br>
                         d) Hospitais, e os acima mencionados
                     </p>
-                    <SelectAnswer />
+                    <SelectAnswer getAnswers={getAnswers} ods={3}/>
                 </div>
 
                 <div className="QuizArea">
@@ -53,7 +90,7 @@ const Quiz = () => {
                         <br />
                         d) 4
                     </p>
-                    <SelectAnswer />
+                    <SelectAnswer getAnswers={getAnswers} ods={4}/>
                 </div>
 
                 <div className="QuizArea">
@@ -68,7 +105,7 @@ const Quiz = () => {
                         <br />
                         d) Frequentemente faço a reciclagem dos produtos que não têm mais utilidade
                     </p>
-                    <SelectAnswer />
+                    <SelectAnswer getAnswers={getAnswers} ods={12}/>
                 </div>
 
                 <div className="QuizArea">
@@ -83,7 +120,7 @@ const Quiz = () => {
                         <br />
                         d)Totalmente consciente, compro somente quando há a necessidade
                     </p>
-                    <SelectAnswer />
+                    <SelectAnswer getAnswers={getAnswers} ods={12}/>
                 </div>
 
                 <div className="QuizArea">
@@ -98,22 +135,22 @@ const Quiz = () => {
                             <br />
                             d)Comércio forte, marcado por empresas de relevância nacional e internacional.
                     </p>
-                    <SelectAnswer />
+                    <SelectAnswer getAnswers={getAnswers} ods={8}/>
                 </div>
 
                 <div className="QuizArea">
                     <p>Quantos casos de feminicídio ou violência contra a mulher ocorreram na região onde você mora?
                     <br />
                     <br />
-                            a) Nenhum caso
+                            a) De 100 para cima
                             <br />
-                            b) Entre 1 e 20
+                            b) Entre 20 e 100
                             <br />
-                            c) Entre 20 e 100
+                            c) Entre 1 e 20
                             <br />
-                            d) De 100 para cima
+                            d) Nenhum caso
                     </p>
-                    <SelectAnswer />
+                    <SelectAnswer getAnswers={getAnswers} ods={5}/>
                 </div>
 
                 <div className="QuizArea">
@@ -128,7 +165,7 @@ const Quiz = () => {
                             <br />
                             d) De dez para mais
                     </p>
-                    <SelectAnswer />
+                    <SelectAnswer getAnswers={getAnswers} ods={5}/>
 
                 </div>
 
@@ -145,10 +182,10 @@ const Quiz = () => {
                         d)Toda a minha comunidade tem acesso a água e saneamento de qualidade
                         <br />
                     </p>
-                    <SelectAnswer />
+                    <SelectAnswer getAnswers={getAnswers} ods={6}/>
                 </div>
 
-                <Link to='/resultado'>Enviar</Link>
+                <button onClick={() => sendDataHandler()}>Enviar</button>
 
             </div>
             
