@@ -19,20 +19,20 @@ const Quiz = () => {
 
     const sendDataHandler = () => {
         const auxResults = new Array(17).fill(0)
-        const odsIndividual = [1, 3, 4, 12, 7, 12, 8, 5, 6, 6, 2, 14, 14, 15, 15, 15, 13, 13, 11, 11, 10, 10, 16]
+        const odsIndividual = [1, 3, 4, 12, 7, 12, 8, 5, 6, 6, 2, 14, 14, 15, 15, 13, 13, 11, 11, 10, 10, 16]
 
         for (let i = 0; i < auxResults.length; i++){
             if(answers[i] == '1'){
-                auxResults[odsIndividual[i]-1] += 10
+                auxResults[odsIndividual[i]-1] += 100
             }
             else if(answers[i] == '2'){
-                auxResults[odsIndividual[i]-1] += 10
+                auxResults[odsIndividual[i]-1] += 100
             }
             else if(answers[i] == '3'){
-                auxResults[odsIndividual[i]-1] += 10
+                auxResults[odsIndividual[i]-1] += 100
             }
             else if(answers[i] == '4'){
-                auxResults[odsIndividual[i]-1] += 10
+                auxResults[odsIndividual[i]-1] += 100
             }
             else{
                 auxResults[odsIndividual[i]-1] += 0

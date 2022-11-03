@@ -1,16 +1,22 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import './style.css'
 
 import InputText from "../../components/InputText";
 import InputCheckBox from "../../components/InputCheckBox";
 import { useNavigate } from "react-router-dom";
 import { ResultContext } from "../../contexts/results";
+import { createIniciative } from '../../services/api'
 
 const Initiative = () => {
-    const [textAnswers, setTextAnswers] = useState(new Array(6))
-    const [selectAnswer, setSelectAnswer] = useState()
+    const [textAnswers, setTextAnswers] = useState(new Array(6).fill(''))
+    const [selectAnswer, setSelectAnswer] = useState('')
     const [checkBoxAnswers, setCheckBoxAnswers] = useState(new Array(4).fill(0))
+    const [points, setPoints] = useState(0)
+    const [mainOds, setMainOds] = useState(0)
+    const [error, setError] = useState(false)
+    const [tryAgain, setTryAgain] = useState(false)
     const { storeResult } = useContext(ResultContext)
+    const [processEnd, setProcessEnd] = useState(null)
     const navigate = useNavigate()
 
     const getTextAnswers = (value, index) => {
@@ -25,9 +31,11 @@ const Initiative = () => {
         setCheckBoxAnswers(auxArray)
     }
 
-    const sendDataHandler = () =>{
+    const processData = () => {
         const auxResults = new Array(17).fill(0)
-        const pointFactor = 10
+        const pointFactor = 100
+        let pointsCounter = 0
+        let odsMaxIndex = 0
         
         const obsSocial = [3, 3, 4, 4, 4, 4, 5, 5, 5, 10, 10, 10, 10, 16, 16, 16, 16, 16, 16]
         const obsAmbiental = [6, 6, 6, 6, 6, 6, 6, 6, 7, 7, 12, 12, 12, 12, 12, 12, 12, 12, 12, 13, 13, 14, 14, 14, 14, 14, 15, 15, 15, 15, 15, 15]
@@ -62,8 +70,59 @@ const Initiative = () => {
         }
 
         storeResult(auxResults)
-        navigate('/resultado')
+
+        if(selectAnswer == '1'){
+            setSelectAnswer('Sociedade Civil')
+        }
+        else if(selectAnswer == '2'){
+            setSelectAnswer('Instituição Pública')
+        }
+        else if(selectAnswer == '3'){
+           setSelectAnswer('Instituição Privada')
+        }
+
+        auxResults.map((eachResult, key) =>{
+            if(eachResult > auxResults[odsMaxIndex]){
+                odsMaxIndex = key
+            }
+            pointsCounter += eachResult
+        })
+
+        setPoints(pointsCounter)
+        setMainOds(odsMaxIndex+1)
+
+        return 1
     }
+
+    const sendDataHandler = async () =>{
+        setProcessEnd(processData())
+    }
+
+    useEffect(() =>{
+        createNewIniciative()
+    }, [processEnd])
+
+    const createNewIniciative = async () => {
+        if(processEnd === null){
+            return
+        }
+        if(textAnswers[0] && textAnswers[1] && textAnswers[2] && textAnswers[3] && textAnswers[4] && textAnswers[5] && selectAnswer){
+            try {
+                const request = await createIniciative(textAnswers[0], textAnswers[1], textAnswers[2], textAnswers[3], textAnswers[4], textAnswers[5], selectAnswer, points, mainOds)
+
+                navigate('/resultado')
+            } catch (error) {
+                console.log(error)
+                setTryAgain(false)
+                setError(true)
+            }
+        }
+        else{
+            setTryAgain(true)
+        }
+    }
+
+    console.log(textAnswers, selectAnswer, checkBoxAnswers)
 
     return(
         <div className="Initiative">
@@ -133,6 +192,19 @@ const Initiative = () => {
                 }       
 
                 <button onClick={() => sendDataHandler()}>Enviar</button>
+
+                {error || tryAgain ?
+                    tryAgain ?
+                        <div>
+                            <p>Preencha todos os campos do formulário...</p>
+                        </div>
+                        :
+                        <div>
+                            <p>Ocorreu um erro tente novamente...</p>
+                        </div>
+                    :
+                    null
+                }
 
             </div>
             

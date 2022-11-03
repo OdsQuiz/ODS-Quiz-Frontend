@@ -16,6 +16,18 @@ export const createUsers = async (name, email, password, address) => {
     return await api.post(url, {name, email, password, address})
 }
 
+export const getIniciatives = async () => {
+    let url = '/iniciatives'
+
+    return await api.get(url)
+}
+
+export const createIniciative = async (name, owner, address, emailOwner, actingArea, impact, type, points, mainOds) => {
+    let url = '/iniciatives'
+
+    return await api.post(url, {name, owner, address, emailOwner, actingArea, impact, type, points, mainOds})
+}
+
 export const createSession = async (email, password) => {
     return await api.post('/session', {email, password})
 }
