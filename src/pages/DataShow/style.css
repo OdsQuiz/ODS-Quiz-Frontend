@@ -6,3 +6,12 @@
     margin-top: 3%;
     margin-bottom: 3%;
 }
+
+.DataShow .DataContainer{
+    margin-top: 3%;
+    width: 90%;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+}
