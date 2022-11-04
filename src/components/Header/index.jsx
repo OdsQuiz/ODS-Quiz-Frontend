@@ -9,7 +9,7 @@ const Header = () => {
     return(
         <div className="Header">
             <div className="Header-elements">
-                <img src='https://cdn.discordapp.com/attachments/1037486089801306113/1037500528587976784/odsquiztext.png' alt="" />
+                <Link to="/"><img src='https://cdn.discordapp.com/attachments/1037486089801306113/1037500528587976784/odsquiztext.png' alt="" /></Link>
                 <div className="linkContainer">
                     <Link to='/'>Home</Link>
                     <Link to='/ranking'>Ranking</Link>

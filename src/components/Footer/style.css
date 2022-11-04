@@ -4,6 +4,7 @@
     justify-content: center;
     background-color: #00336a;
     flex-direction: column;
+    height: 10vh;
 }
 
 .FooterLogo-Span{
@@ -30,12 +31,34 @@
 
 .FooterP2 p{
     color: white;
+    font-family: 'sfpromedium';
+}
+
+.FooterP1, .FooterP2{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.FooterP1 p, .FooterP2 p{
+    margin: 0;
 }
 
 .Pall {
     display: flex;
     justify-content: space-between;
     width: 95%;
+
+    font-family: 'sfpromedium';
+    height: 100%;
+}
+
+.Pall img{
+    width: 8rem;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .Line {

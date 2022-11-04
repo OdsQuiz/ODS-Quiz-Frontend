@@ -9,5 +9,9 @@
 }
 
 .InputCheckBox label{
+    font-family: 'sfpromedium';
+}
+
+.InputCheckBox label{
     margin-left: 15px;
 }

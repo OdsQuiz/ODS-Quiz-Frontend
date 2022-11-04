@@ -8,19 +8,17 @@ const Footer = () => {
     return(
         <div className="Footer">
 
-            <div className="FooterLogo-Span">
-                <span>Powered by:</span>
-                <img src={serraLogo} alt="" />
-            </div>
             
-            <div className="Line">
-                <p></p>
-            </div>
+            
+
 
             <div className="Pall">
                 <div className="FooterP1">
                     <p>© Serra HackClub 2022</p>
                 </div>   
+                <div>
+                    <a target='_blank' href="https://www.instagram.com/serrahackclub"><img src={serraLogo} alt="" /></a>
+                </div>
                 <div className="FooterP2">
                     <p>Todos os direitos reservados</p>
                 </div> 

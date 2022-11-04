@@ -16,8 +16,8 @@ function App() {
     <div className="App">
       <AuthProvider>
         <BrowserRouter>
-          <PreHeader />
           <Header />
+          <PreHeader />
           <ContentRoutes />
           <Footer />
         </BrowserRouter>
