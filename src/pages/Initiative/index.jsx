@@ -108,11 +108,11 @@ const Initiative = () => {
         }
         if(textAnswers[0] && textAnswers[1] && textAnswers[2] && textAnswers[3] && textAnswers[4] && textAnswers[5] && selectAnswer){
             try {
-                const positionStackBaseUrl = `http://api.positionstack.com/v1/forward?access_key=341623747b6417337b77a7e88d599ec0&query=${textAnswers[2]}`
-                fetch(positionStackBaseUrl)
+                const locationIQBaseUrl = `https://us1.locationiq.com/v1/search?key=pk.cf85b52eb08904e43721a3a3bbaf234f&q=${textAnswers[2]}&format=json`
+                fetch(locationIQBaseUrl)
                     .then((request) => request.json())
                     .then(async (data) =>{
-                        const request = await createIniciative(textAnswers[0], textAnswers[1], textAnswers[2], textAnswers[3], textAnswers[4], textAnswers[5], selectAnswer, points, mainOds, data.data[0].latitude, data.data[0].longitude)
+                        const request = await createIniciative(textAnswers[0], textAnswers[1], textAnswers[2], textAnswers[3], textAnswers[4], textAnswers[5], selectAnswer, points, mainOds, parseFloat(data[0].lat), parseFloat(data[0].lat))
                         navigate('/resultado') 
                     })
             } catch (error) {

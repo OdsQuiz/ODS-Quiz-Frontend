@@ -10,10 +10,16 @@ export const getUsers = async () => {
     return await api.get(url)
 }
 
-export const createUsers = async (name, email, password, address, lat, lon) => {
+export const createUsers = async (name, email, password, address, lat, lon, points) => {
     let url = '/users'
 
-    return await api.post(url, {name, email, password, address, lat, lon})
+    return await api.post(url, {name, email, password, address, lat, lon, points})
+}
+
+export const updateUserPoints = async (id, points) => {
+    let url = `/users/${id}`
+
+    return await api.put(url, {points})
 }
 
 export const getIniciatives = async () => {

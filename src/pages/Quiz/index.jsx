@@ -22,6 +22,8 @@ import odsIcon14 from '../../assets/odsIcons/14.png'
 import odsIcon15 from '../../assets/odsIcons/15.webp'
 import odsIcon16 from '../../assets/odsIcons/16.webp'
 import odsIcon17 from '../../assets/odsIcons/17.png'
+import { AuthContext } from "../../contexts/auth";
+import { updateUserPoints } from "../../services/api";
 
 
 
@@ -29,6 +31,7 @@ import odsIcon17 from '../../assets/odsIcons/17.png'
 const Quiz = () => {
 
     const [answers, setAnswers] = useState(new Array(17))
+    const { user } = useContext(AuthContext)
     const { storeResult } = useContext(ResultContext)
     const navigate = useNavigate()
 
@@ -38,8 +41,9 @@ const Quiz = () => {
         setAnswers(auxArray)
     }
 
-    const sendDataHandler = () => {
+    const sendDataHandler = async () => {
         const auxResults = new Array(17).fill(0)
+        var pointsCounter = 0
         const odsIndividual = [1, 3, 4, 12, 7, 12, 8, 5, 6, 6, 2, 14, 14, 15, 15, 13, 13, 11, 11, 10, 10, 16]
 
         for (let i = 0; i < auxResults.length; i++){
@@ -47,13 +51,13 @@ const Quiz = () => {
                 auxResults[odsIndividual[i]-1] += 100
             }
             else if(answers[i] == '2'){
-                auxResults[odsIndividual[i]-1] += 100
+                auxResults[odsIndividual[i]-1] += 200
             }
             else if(answers[i] == '3'){
-                auxResults[odsIndividual[i]-1] += 100
+                auxResults[odsIndividual[i]-1] += 300
             }
             else if(answers[i] == '4'){
-                auxResults[odsIndividual[i]-1] += 100
+                auxResults[odsIndividual[i]-1] += 400
             }
             else{
                 auxResults[odsIndividual[i]-1] += 0
@@ -61,6 +65,13 @@ const Quiz = () => {
         }
 
         storeResult(auxResults)
+
+        auxResults.map((eachResult, key) =>{
+            pointsCounter += eachResult
+        })
+
+        const request = await updateUserPoints(user.id, pointsCounter)
+
         navigate('/resultado')
     }
 

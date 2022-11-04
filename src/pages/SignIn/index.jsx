@@ -20,11 +20,11 @@ const SignIn = () => {
     const createNewUser = async () => {
         if(name && email && password && address && terms){
             try {
-                const positionStackBaseUrl = `/api/forward?access_key=341623747b6417337b77a7e88d599ec0&query=${address}}`
-                fetch(positionStackBaseUrl)
+                const locationIQBaseUrl = `https://us1.locationiq.com/v1/search?key=pk.cf85b52eb08904e43721a3a3bbaf234f&q=${address}&format=json`
+                fetch(locationIQBaseUrl)
                     .then((request) => request.json())
                     .then(async (data) =>{
-                        const request = await createUsers(name, email, password, address, data.data[0].latitude, data.data[0].longitude)
+                        const request = await createUsers(name, email, password, address, parseFloat(data[0].lat), parseFloat(data[0].lat), 0)
                         await login(email, password)
                         navigate('/painel')
                     })

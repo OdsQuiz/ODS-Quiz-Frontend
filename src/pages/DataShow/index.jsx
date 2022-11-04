@@ -9,14 +9,7 @@ import { MapContainer, TileLayer, useMap, Marker, Popup } from 'react-leaflet'
 
 import { getIniciatives } from "../../services/api";
 
-// import L from "Leaflet";
-
 const center = [-22.906930495454464, -43.18279630247476]
-
-// const markerIcon = () => new L.Icon({
-//     iconUrl: require("resources/images/marker.png"),
-//     iconSize: [35, 45],
-// });
 
 const DataShow = () => {
 
