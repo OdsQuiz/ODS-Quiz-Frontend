@@ -20,7 +20,7 @@ const SignIn = () => {
     const createNewUser = async () => {
         if(name && email && password && address && terms){
             try {
-                const positionStackBaseUrl = `https://api.positionstack.com/v1/forward?access_key=341623747b6417337b77a7e88d599ec0&query=${address}`
+                const positionStackBaseUrl = `http://api.positionstack.com/v1/forward?access_key=341623747b6417337b77a7e88d599ec0&query=${address}`
                 fetch(positionStackBaseUrl)
                     .then((request) => request.json())
                     .then(async (data) =>{
