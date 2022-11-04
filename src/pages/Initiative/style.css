@@ -3,20 +3,17 @@
     justify-content: center;
     align-items: center;
     min-height: 100vh;
-
-    background-image: url("../../assets/backgroundQuiz.svg");
     background-repeat: no-repeat;
     background-size: cover;
 }
 
 .InitiativeContainer {
-    background-color: #fff;
+    background-color: #f0f0f0;
     align-items: center;
     display: flex;
     justify-content: center;
     flex-direction: column;
-    width: 50%;
-    border: 1px solid grey;
+    width: 40%;
     border-radius: 20px;
     padding-top: 20px;
     padding-bottom: 20px;
@@ -24,17 +21,15 @@
 }
 
 .InitiativeContainer .InitiativeArea{
-    width: 90%;
+    width: 80%;
+    margin-bottom: 1rem;
 }
 
 .InitiativeContainer .InitiativeArea p{
-    background-color: #037DCC;
-    padding-top: 10px;
-    padding-bottom: 10px;
-    padding-left: 10px;
-    margin-top: 20px;
+    font-family: 'sfpromedium';
+    margin-bottom: 0;
     border-radius: 7px;
-    color: #fff;
+    color: #000;
 }
 
 .InitiativeContainer button{
@@ -42,17 +37,21 @@
     align-items: center;
     justify-content: center;
     width: 70%;
+    background-color: #00bc38;
     height: 6vh;
     border-radius: 20px;
-    border: 1px solid grey;
+    border: none;
     margin-top: 20px;
+    font-size: 1.4rem;
+    font-family: 'sfpromedium';
     cursor: pointer;
     text-decoration: none;
-    color: #000;
+    color: #fff;
+    transition: 0.3s;
 }
 
 .InitiativeContainer button:hover{
-    background-color: #037DCC;
+    background-color: #008728;
     transition: 0.3s;
     color: #fff;
 }

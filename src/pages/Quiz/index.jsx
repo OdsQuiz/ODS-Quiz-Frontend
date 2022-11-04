@@ -226,11 +226,11 @@ const Quiz = () => {
                 </div>
 
 
-                <div className="QuizArea ods6">
+                <div className="QuizArea ods2">
                     <p>11) Na comunidade em que você vive, você conhece pessoas que passam fome? É do seu conhecimento projetos locais voltados a ajudá-las?
                     </p>
                     <div className="tags">
-                            <img src={odsIcon6} alt="" />
+                            <img src={odsIcon2} alt="" />
                         </div>
                     <SelectAnswer 
                                 opA='a) Conheço pessoas em situação de fome, e não há projetos voltados a ajudá-las.' 
@@ -239,7 +239,7 @@ const Quiz = () => {
                                 opD='d) Não conheço pessoas em situação de fome, e conheço um ou mais projetos voltados para a ajuda destas pessoas, possivelmente em outras comunidades.'
                                 opE='e) Não sei responder.'
                                 getAnswers={getAnswers} 
-                                ods={6}/>
+                                ods={2}/>
                 </div>
 
                 <div className="QuizArea ods14">
@@ -274,11 +274,11 @@ const Quiz = () => {
                                 ods={14}/>
                 </div>
 
-                <div className="QuizArea ods14">
+                <div className="QuizArea ods13">
                     <p>14) Você conhece áreas de preservação terrestre (parques florestais, reservas ambientais, RPPN’s, unidades de conservação) na sua região?
                     </p>
                     <div className="tags">
-                            <img src={odsIcon14} alt="" />
+                            <img src={odsIcon13} alt="" />
                         </div>
                     <SelectAnswer 
                                 opA='a) Não conheço.' 
@@ -287,7 +287,7 @@ const Quiz = () => {
                                 opD='d) Conheço mais de 5.'
                                 opE='e) Não sei responder.'
                                 getAnswers={getAnswers} 
-                                ods={14}/>
+                                ods={13}/>
                 </div>
 
                 <div className="QuizArea ods15">

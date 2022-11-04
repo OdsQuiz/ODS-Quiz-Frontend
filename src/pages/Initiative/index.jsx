@@ -126,8 +126,6 @@ const Initiative = () => {
         }
     }
 
-    console.log(textAnswers, selectAnswer, checkBoxAnswers)
-
     return(
         <div className="Initiative">
             <div className="InitiativeContainer">

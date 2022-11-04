@@ -36,18 +36,29 @@ const DataShow = () => {
             <div className="DataShow">
                 <MapContainer attributionControl={false} style={{width: '99.3vw', height: '60vh'}} center={center} zoom={10} scrollWheelZoom={false} >
                     <TileLayer
-                        
                         url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
                     />
-    
-                    
+
+                    {data.map((eachData, key) => {
+                        if(eachData.lat && eachData.lon){
+                            return(
+                                <Marker key={key} position={[eachData.lat, eachData.lon]}>
+                                    <Popup>
+                                        {eachData.name}
+                                    </Popup>
+                                </Marker>
+                            )
+                        }
+                    })
+                    }
+   
                 </MapContainer>
     
                 <h1>Mapa das Iniciativas Cadastradas</h1>
                 <div className="DataContainer">
                     {data.map((eachData, key) => {
                         return(
-                            <IniciativesData dataObject={eachData}/>
+                            <IniciativesData key={key} dataObject={eachData}/>
                         )
                     })
                     }

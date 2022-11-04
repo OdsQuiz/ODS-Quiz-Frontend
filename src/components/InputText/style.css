@@ -1,22 +1,24 @@
 .InputText{
     width: 90%;
+    background-color: #f0f0f0;
+    border-radius: 1.3rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    padding: 1rem;
+    
     
 }
 
 .InputText label{
-    display: block;
-    background-color: #037DCC;
-    padding-top: 10px;
-    padding-bottom: 10px;
-    padding-left: 10px;
-    margin-top: 20px;
-    border-radius: 7px;
-    color: #fff;  
+    color: #000; 
+    font-family: 'sfpromedium'; 
+    width: 95%;
 }
 
 .InputText input{
-    width: 100%;
-    margin-top: 15px;
+    width: 95%;
     border-radius: 7px;
     padding-top: 5px;
     padding-bottom: 5px;
@@ -25,6 +27,6 @@
 }
 
 .InputText input:focus{
-    border: 1px solid #037ccc8c;
+    border: 1px solid #037ccc;
     outline: 4px solid #037ccc43;
 }
