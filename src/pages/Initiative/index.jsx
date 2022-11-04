@@ -108,9 +108,13 @@ const Initiative = () => {
         }
         if(textAnswers[0] && textAnswers[1] && textAnswers[2] && textAnswers[3] && textAnswers[4] && textAnswers[5] && selectAnswer){
             try {
-                const request = await createIniciative(textAnswers[0], textAnswers[1], textAnswers[2], textAnswers[3], textAnswers[4], textAnswers[5], selectAnswer, points, mainOds)
-
-                navigate('/resultado')
+                const positionStackBaseUrl = `http://api.positionstack.com/v1/forward?access_key=341623747b6417337b77a7e88d599ec0&query=${textAnswers[2]}`
+                fetch(positionStackBaseUrl)
+                    .then((request) => request.json())
+                    .then(async (data) =>{
+                        const request = await createIniciative(textAnswers[0], textAnswers[1], textAnswers[2], textAnswers[3], textAnswers[4], textAnswers[5], selectAnswer, points, mainOds, data.data[0].latitude, data.data[0].longitude)
+                        navigate('/resultado') 
+                    })
             } catch (error) {
                 console.log(error)
                 setTryAgain(false)

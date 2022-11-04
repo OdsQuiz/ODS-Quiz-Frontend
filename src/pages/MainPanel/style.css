@@ -3,8 +3,6 @@
     justify-content: center;
     align-items: center;
     min-height: 100vh;
-
-    background-image: url("../../assets/backgroundQuiz.svg");
     background-repeat: no-repeat;
     background-size: cover;
 }
@@ -16,15 +14,18 @@
     justify-content: center;
     flex-direction: column;
     width: 50%;
-    border: 1px solid grey;
     border-radius: 20px;
-    padding-top: 20px;
-    padding-bottom: 20px;
-    margin: 20px;
+    padding-top: 2.4rem;
+    padding-bottom: 3rem;
+    background-color: #f2f2f2;
 }
 
 .MainPanelContainer img {
     width: 30%;
+}
+
+.MainPanelContainer span{
+    font-family: 'sfproregular';
 }
 
 .MainPanelContainer a{
@@ -34,8 +35,10 @@
     width: 60%;
     height: 6vh;
     border-radius: 20px;
-    border: 1px solid grey;
-    margin-top: 20px;
+    font-family: 'sfpromedium';
+    font-size: 1.3rem;
+    margin-top: 0.5rem;
+
     cursor: pointer;
     text-decoration: none;
     background-color: green;
@@ -54,16 +57,27 @@
     width: 60%;
     height: 6vh;
     border-radius: 20px;
-    border: 1px solid grey;
+    border: none;
     margin-top: 20px;
     cursor: pointer;
     text-decoration: none;
-    color: #fff;
-    background-color: red;
+    color: #000;
+    font-family: 'sfpromedium';
+    
     margin-left: 10px;
+}
+
+.MainPanel button img{
+    width: 1.4rem;   
+    margin-right: 0.5rem;
 }
 
 .MainPanelContainer button:hover{
     opacity: 0.8;
     transition: 0.3s;
+}
+
+.MainPanelContainer .panel-username{
+    font-family: 'sfpromedium';
+    font-size: 1.2rem;
 }

@@ -6,14 +6,15 @@ import RankingLine from "../../components/RankingLine";
 import Agent from "../../assets/agent.svg"
 import People from "../../assets/people.svg"
 import EnterPrise from "../../assets/enterprise.svg"
-import Rank from "../../assets/ranking.svg"
+import Rank from "../../assets/trophy.svg"
+import infoLogo from "../../assets/info.svg"
 
 const Ranking = () => {
     return(
         <div className="Ranking">
             <div className="RankTextImage">
                 <img src={Rank} alt="" />
-                <h1>Ranking</h1>
+                <h1>Ranking </h1>
             </div>
             
             <div className="RanksContainer">
@@ -48,6 +49,7 @@ const Ranking = () => {
 
             <div className="BulletinBoard">
                 <div className="BulletinBoardIn">
+                    <img src={infoLogo} alt="" />
                     <p>As colocações acima são referentes ao quiz dos ODS. Nesse sentido, os primeiros colocados são os que melhores pontuaram na perguntas referentes as ODS de sua rotina. </p>
                 </div> 
             </div>

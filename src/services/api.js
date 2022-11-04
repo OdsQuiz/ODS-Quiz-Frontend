@@ -10,10 +10,10 @@ export const getUsers = async () => {
     return await api.get(url)
 }
 
-export const createUsers = async (name, email, password, address) => {
+export const createUsers = async (name, email, password, address, lat, lon) => {
     let url = '/users'
 
-    return await api.post(url, {name, email, password, address})
+    return await api.post(url, {name, email, password, address, lat, lon})
 }
 
 export const getIniciatives = async () => {
@@ -22,10 +22,10 @@ export const getIniciatives = async () => {
     return await api.get(url)
 }
 
-export const createIniciative = async (name, owner, address, emailOwner, actingArea, impact, type, points, mainOds) => {
+export const createIniciative = async (name, owner, address, emailOwner, actingArea, impact, type, points, mainOds, lat, lon) => {
     let url = '/iniciatives'
 
-    return await api.post(url, {name, owner, address, emailOwner, actingArea, impact, type, points, mainOds})
+    return await api.post(url, {name, owner, address, emailOwner, actingArea, impact, type, points, mainOds, lat, lon})
 }
 
 export const createSession = async (email, password) => {

@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import './style.css'
 
-const SelectAnswer = ({getAnswers, ods}) => {
+const SelectAnswer = ({getAnswers, ods, opA, opB, opC, opD, opE}) => {
 
     const clickHandler = (value) => {
 
@@ -15,11 +15,11 @@ const SelectAnswer = ({getAnswers, ods}) => {
         <div className="SelectAnswer">
             <select className="form-select" aria-label="Default select example" onClick={(e) => clickHandler(e.target.value)}>
                 <option defaultValue>Selecione sua resposta</option>
-                <option value="1">Opção A</option>
-                <option value="2">Opção B</option>
-                <option value="3">Opção C</option>
-                <option value="4">Opção D</option>
-                <option value="5">Opção E</option>
+                <option value="1">{opA}</option>
+                <option value="2">{opB}</option>
+                <option value="3">{opC}</option>
+                <option value="4">{opD}</option>
+                <option value="5">{opE}</option>
             </select>
         </div>
     )

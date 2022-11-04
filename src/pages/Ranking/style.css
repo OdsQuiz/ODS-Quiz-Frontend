@@ -45,7 +45,7 @@
     width: 30%;
     text-align: center;
     background-color: #e9e9e9;
-    padding-top: 2rem;
+    
     border-radius: 2rem;
 }
 
@@ -54,10 +54,13 @@ h1 {
 }
 
 .Ranking {
+
 }
 
 .ImgText Img{
-    width: 10%;
+    width: 2rem;
+    filter: invert(1);
+    margin-right: 1rem;
 
 }
 
@@ -69,8 +72,13 @@ h1 {
     display: flex;
     justify-content: center;
     align-items: center;
-    font-family: 'sfpromedium';
+    font-family: 'sfprobold';
     font-size: 2rem;
+    border-top-left-radius: 2rem;
+    border-top-right-radius: 2rem;
+    height: 6rem;
+    background-color: #4f4f4f;
+    color: white;
 }
 
 .RankTextImage {
@@ -81,8 +89,14 @@ h1 {
     margin-bottom: -3rem;
 }
 
+.RankTextImage img{
+    width: 2.4rem;
+    
+}
+
 .RankTextImage h1 {
     margin-left: 1%;
+    font-family: 'sfprobold';
 }
 
 
@@ -97,11 +111,19 @@ h1 {
     display: flex;
     justify-content: center;
     align-items: center;
-    border: 3px solid grey;
     border-radius: 7px;
-    margin-right: 0px;
-    width: 60%;
-    text-align: center;
+    height: 10rem;
+    margin-top: -4rem;
 }
 
+.BulletinBoardIn img{
+    width: 1.4rem;
 
+}
+
+.BulletinBoardIn p{
+    font-size: 1rem;
+    font-family: 'sfpromedium';
+    margin: 0;
+
+}

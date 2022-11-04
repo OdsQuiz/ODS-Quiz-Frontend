@@ -20,9 +20,14 @@ const SignIn = () => {
     const createNewUser = async () => {
         if(name && email && password && address && terms){
             try {
-                const request = await createUsers(name, email, password, address)
-                await login(email, password)
-                navigate('/painel')
+                const positionStackBaseUrl = `http://api.positionstack.com/v1/forward?access_key=341623747b6417337b77a7e88d599ec0&query=${address}`
+                fetch(positionStackBaseUrl)
+                    .then((request) => request.json())
+                    .then(async (data) =>{
+                        const request = await createUsers(name, email, password, address, data.data[0].latitude, data.data[0].longitude)
+                        await login(email, password)
+                        navigate('/painel')
+                    })
             } catch (error) {
                 setTryAgain(false)
                 setError(true)

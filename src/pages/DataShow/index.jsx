@@ -34,17 +34,16 @@ const DataShow = () => {
     if(data){
         return(
             <div className="DataShow">
-                <h1>Mapa das iniciativas cadastradas</h1>
-                <MapContainer style={{width: '60vw', height: '60vh', marginTop:'3%', borderRadius: '20px'}} center={center} zoom={10} scrollWheelZoom={false}>
+                <MapContainer attributionControl={false} style={{width: '99.3vw', height: '60vh'}} center={center} zoom={10} scrollWheelZoom={false} >
                     <TileLayer
-                        attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+                        
                         url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
                     />
     
                     
                 </MapContainer>
     
-                <h1>Iniciativas cadastradas</h1>
+                <h1>Mapa das Iniciativas Cadastradas</h1>
                 <div className="DataContainer">
                     {data.map((eachData, key) => {
                         return(

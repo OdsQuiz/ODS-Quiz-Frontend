@@ -33,23 +33,23 @@ const Result = () => {
         "#DD1367", "#FD9D24", "#BF8B2E", "#3F7E44", "#0A97D9", "#56C02B", "#00689D", "#19486A"
     ]
     const descriptions = [
-        'Acabar com a pobreza em todas as suas formas, em todos os lugares',
-        'Acabar com a fome, alcançar a segurança alimentar e melhoria da nutrição e promover a agricultura sustentável',
-        'Assegurar uma vida saudável e promover o bem-estar para todos, em todas as idades',
-        'Assegurar a educação inclusiva e equitativa e de qualidade, e promover oportunidades de aprendizagem ao longo da vida para todos',
-        'Alcançar a igualdade de gênero e empoderar todas as mulheres e meninas',
-        'Garantir disponibilidade e manejo sustentável da água e saneamento para todos',
-        'Garantir acesso à energia barata, confiável, sustentável e renovável para todos',
-        'Promover o crescimento econômico sustentado, inclusivo e sustentável, emprego pleno e produtivo, e trabalho decente para todos',
-        'Construir infraestrutura resiliente, promover a industrialização inclusiva e sustentável, e fomentar a inovação',
-        'Reduzir a desigualdade dentro dos países e entre eles',
-        'Tornar as cidades e os assentamentos humanos inclusivos, seguros, resilientes e sustentáveis',
-        'Assegurar padrões de produção e de consumo sustentáveis',
-        'Tomar medidas urgentes para combater a mudança do clima e seus impactos (reconhecendo que a Convenção Quadro das Nações Unidas sobre Mudança do Clima [UNFCCC] é o fórum internacional intergovernamental primário para negociar a resposta global à mudança do clima)',
-        'Conservação e uso sustentável dos oceanos, dos mares e dos recursos marinhos para o desenvolvimento sustentável',
-        'Proteger, recuperar e promover o uso sustentável dos ecossistemas terrestres, gerir de forma sustentável as florestas, combater a desertificação, deter e reverter a degradação da terra e deter a perda de biodiversidade',
-        'Promover sociedades pacíficas e inclusivas para o desenvolvimento sustentável, proporcionar o acesso à justiça para todos e construir instituições eficazes, responsáveis e inclusivas em todos os níveis',
-        'Fortalecer os meios de implementação e revitalizar a parceria global para o desenvolvimento sustentável',
+        'Acabar com a pobreza em todas as suas formas, em todos os lugares.',
+        'Acabar com a fome, alcançar a segurança alimentar e melhoria da nutrição e promover a agricultura sustentável.',
+        'Assegurar uma vida saudável e promover o bem-estar para todos, em todas as idades.',
+        'Assegurar a educação inclusiva e equitativa e de qualidade, e promover oportunidades de aprendizagem ao longo da vida para todos.',
+        'Alcançar a igualdade de gênero e empoderar todas as mulheres e meninas.',
+        'Garantir disponibilidade e manejo sustentável da água e saneamento para todos.',
+        'Garantir acesso à energia barata, confiável, sustentável e renovável para todos.',
+        'Promover o crescimento econômico sustentado, inclusivo e sustentável, emprego pleno e produtivo, e trabalho decente para todos.',
+        'Construir infraestrutura resiliente, promover a industrialização inclusiva e sustentável, e fomentar a inovação.',
+        'Reduzir a desigualdade dentro dos países e entre eles.',
+        'Tornar as cidades e os assentamentos humanos inclusivos, seguros, resilientes e sustentáveis.',
+        'Assegurar padrões de produção e de consumo sustentáveis.',
+        'Tomar medidas urgentes para combater a mudança do clima e seus impactos (reconhecendo que a Convenção Quadro das Nações Unidas sobre Mudança do Clima [UNFCCC] é o fórum internacional intergovernamental primário para negociar a resposta global à mudança do clima).',
+        'Conservação e uso sustentável dos oceanos, dos mares e dos recursos marinhos para o desenvolvimento sustentável.',
+        'Proteger, recuperar e promover o uso sustentável dos ecossistemas terrestres, gerir de forma sustentável as florestas, combater a desertificação, deter e reverter a degradação da terra e deter a perda de biodiversidade.',
+        'Promover sociedades pacíficas e inclusivas para o desenvolvimento sustentável, proporcionar o acesso à justiça para todos e construir instituições eficazes, responsáveis e inclusivas em todos os níveis.',
+        'Fortalecer os meios de implementação e revitalizar a parceria global para o desenvolvimento sustentável.',
     ]
     
     const { result } = useContext(ResultContext)
@@ -67,7 +67,6 @@ const Result = () => {
 
         return(
             <>
-                <h2>Maior Pontuação</h2>
                 <ODSPoints id={idMax+1} image={images[idMax]} points={`${result[idMax]} pts`} color={colors[idMax]} description={descriptions[idMax]}/>
             </>
         )
@@ -77,7 +76,7 @@ const Result = () => {
         <div className="Result">
             { result ?
                 <>
-                    <h1>Resultado Final</h1>
+                    <h1 className="result-title">Resultados</h1>
                     <div className="Points">
                         {images.map((image, key) => {
                             return <ODSPoints key={key} image={image} points={result[key] == 0 ? 'Não obteve pontos' : `${result[key]} pts`} color={colors[key]} />

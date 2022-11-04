@@ -2,8 +2,44 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    background-color: #00336a;
+    flex-direction: column;
 }
 
-.Footer img{
-    height: 10vh;
+.FooterLogo-Span{
+    width: 10%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
+
+.FooterLogo-Span img {
+    width: 80%;
+    margin: 10%;
+}
+
+.FooterLogo-Span span {
+    color: white;
+    width: 500px;
+    margin: 10%;
+}
+
+.FooterP1 p{
+    color: white;
+}
+
+.FooterP2 p{
+    color: white;
+}
+
+.Pall {
+    display: flex;
+    justify-content: space-between;
+    width: 95%;
+}
+
+.Line {
+    width: 95%;
+    border-top: 0.5px solid white;
+}
+

@@ -5,6 +5,7 @@ import { AuthContext } from "../../contexts/auth";
 import { api } from "../../services/api";
 import { Link, useNavigate } from "react-router-dom";
 import HackLogo from '../../assets/hack2030.png'
+import logoutIcon from '../../assets/logout.svg'
 
 
 const MainPanel = () => {
@@ -20,17 +21,15 @@ const MainPanel = () => {
             <div className="MainPanel">
                 <div className="MainPanelContainer">
                     <img src={HackLogo} />
-                    <p>Olá, bem vindo {user.name}</p>
+                    <p className="panel-username">Olá, seja bem vindo(a) {user.name}!</p>
 
-                    <p>Responda ao formulário individual ou cadastre uma iniciativa</p>
+                    <span>Responda ao formulário individual ou cadastre uma iniciativa</span>
 
-                    <p></p>
-    
                     <Link to='/quiz/individual'>Formulário Individual</Link>
                     <Link to='/quiz/iniciativa'>Cadastrar Iniciativa</Link>
                     <Link>Minhas Iniciativas</Link>
 
-                    <button onClick={() => logOutHandler()}>Sair da conta</button>
+                    <button onClick={() => logOutHandler()}> <img src={logoutIcon} alt="" /> Sair da conta</button>
     
                 </div>
             </div>
