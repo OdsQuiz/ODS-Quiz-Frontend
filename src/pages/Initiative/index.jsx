@@ -38,7 +38,7 @@ const Initiative = () => {
         let odsMaxIndex = 0
         
         const obsSocial = [3, 3, 4, 4, 4, 4, 5, 5, 5, 10, 10, 10, 10, 16, 16, 16, 16, 16, 16]
-        const obsAmbiental = [6, 6, 6, 6, 6, 6, 6, 6, 7, 7, 12, 12, 12, 12, 12, 12, 12, 12, 12, 13, 13, 14, 14, 14, 14, 14, 15, 15, 15, 15, 15, 15]
+        const obsAmbiental = [6, 6, 6, 6, 6, 6, 6, 6, 7, 7, 12, 12, 12, 12, 12, 12, 12, 12, 12, 13, 13, 14, 14, 14, 14, 14, 15, 15, 15, 15, 15, 15, 12, 12, 12]
         const obsEconomic = [1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 2, 8, 8, 8, 9, 9, 9, 9, 9, 9, 11, 11, 11, 11, 11, 11, 11, 11, 11, 11, 11, 11, 17, 17, 17, 17]
 
         const socialData = checkBoxAnswers[1]
@@ -173,7 +173,7 @@ const Initiative = () => {
                         checkBoxIndex={2}
                         title='No âmbito ambiental (relacionado ao planeta), assinale as alternativas que mais se relacionam com o objetivo da sua iniciativa:' 
                         options={[
-                            'Qualidade da água', 'Água potável', 'Saneamento básico/esgoto sanitário', 'Economia de água', 'Qualidade de rios e córregos', 'Proteção de mananciais', 'Comitê de bacias hidrográficas', 'Recursos hídricos', 'Acesso à energia elétrica', 'Energia limpa', 'Consumo e produção responsáveis', 'Uso eficiente de recursos naturais', 'Resíduos perigosos ou reuso', 'Turismo sustentável', 'Mudança do clima', 'Desastres naturais', 'Educação para mudança do clima', 'Gases do efeito estufa GEE', 'Vida na água', 'Oceanos, mares e recursos marinhos', 'Eutrofização', 'Lixo plástico nos mares', 'Pesca', 'Áreas de proteção costeira ou marinha', 'Vida terrestre', 'Ecossistemas terrestres', 'Florestas', 'Desertificação, degradação do solo', 'Biodiversidade', 'Áreas de proteção terrestre'
+                            'Qualidade da água', 'Água potável', 'Saneamento básico/esgoto sanitário', 'Economia de água', 'Qualidade de rios e córregos', 'Proteção de mananciais', 'Comitê de bacias hidrográficas', 'Recursos hídricos', 'Acesso à energia elétrica', 'Energia limpa', 'Consumo e produção responsáveis', 'Uso eficiente de recursos naturais', 'Resíduos perigosos ou reuso', 'Turismo sustentável', 'Mudança do clima', 'Desastres naturais', 'Educação para mudança do clima', 'Gases do efeito estufa GEE', 'Vida na água', 'Oceanos, mares e recursos marinhos', 'Eutrofização', 'Lixo plástico nos mares', 'Pesca', 'Áreas de proteção costeira ou marinha', 'Vida terrestre', 'Ecossistemas terrestres', 'Florestas', 'Desertificação', 'Degradação do solo', 'Biodiversidade', 'Áreas de proteção terrestre', 'Desperdício de alimentos', 'Geração energia limpa', 'Reciclagem ou reuso'
                         ]}
                     />
                     :
