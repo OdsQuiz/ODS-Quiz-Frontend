@@ -11,7 +11,6 @@ const PreHeader = () => {
     return(
         <div className="PreHeader-All">
             <div className="PreHeader-elements">
-                <p></p>
                 <div className="Links-cont">
                     <Link to='/participar/cadastro'>Junte-se a nós</Link>
                     {/* <hr /> */}

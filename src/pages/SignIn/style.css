@@ -150,3 +150,18 @@
 .SignInComunity .Confirm .CheckBox{
     margin-right: 10px;
 }
+
+@media screen and (max-width: 490px){
+    .SignIn .card-login{
+        background-color: #e8e8e8;
+        border-radius: 2rem;
+        padding-top: 1rem;
+        padding-bottom: 2rem;
+        width: 90vw;
+        margin-top: 2rem;
+        margin-bottom: 3rem;
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+    }
+}

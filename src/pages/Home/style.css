@@ -121,6 +121,8 @@
     justify-content: space-evenly;
     font-family: 'sfproregular';
     margin-top: 3%;
+    flex-wrap: wrap;
+
  }
 
  .Home .home-row h2{
@@ -129,8 +131,12 @@
 
  .Home .img-column img{
     height: 50vh;
+  
+
     
  }
+
+
 
  .Home .text-column{
     display: flex;
@@ -151,8 +157,8 @@
  .Home .home-button{
     text-decoration: none;
     color: black;
-    width: 20%;
-    height: 3rem;
+    width: 10em;
+    height: 3em;
     border: 0.11rem solid black;
     background-color: #fff;
     border-radius: 1rem;
@@ -161,6 +167,64 @@
     align-items: center;
     justify-content: center;
  }
+
+ @media screen and (max-width: 490px){
+  .Home .home-row{
+    width: 100vw;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+
+    align-items: center;
+    font-family: 'sfproregular';
+    flex-wrap: wrap;
+
+
+ }
+  .OdsAll{
+      display: flex;
+      flex-direction: column;
+      
+  }
+
+  .OdsContent p {
+    text-align: justify;
+    width: 80vw;
+  }
+  .Home .img-column{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 90vw;
+    margin-top: -3rem;
+ }
+  .Home .text-column{
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    width: 90vw;
+    height: auto;
+    margin-bottom: 5rem;
+  }
+  .Home .img-column img{
+    height: 70vw;
+    
+ }
+ }
+
+ @media screen and (max-width: 900px){
+
+  .OdsAll {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .OdsContent p{
+    width: 70vw;
+    text-align: justify;
+  }
+ }
+
 
 
  @-webkit-keyframes rotating /* Safari and Chrome */ {

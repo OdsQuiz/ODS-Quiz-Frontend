@@ -16,7 +16,7 @@
 }
 
 .Links-cont a{
-    margin-right: 7%;
+    margin-right: 2em;
     text-decoration: none;
     color: grey;
     font-weight: 400;
@@ -25,5 +25,11 @@
 }
 
 .Links-cont {
-    width: 21%;
+    width: 100%;
+}
+
+@media screen and (max-width: 950px){
+    .PreHeader-All {
+        display: none;
+    }
 }

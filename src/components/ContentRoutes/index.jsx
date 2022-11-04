@@ -41,7 +41,7 @@ const ContentRoutes = () => {
                     <Route path="/participar/cadastro" element={<LoggedRedirection><SignIn /></LoggedRedirection>} />
                     <Route path="/ranking" element={<Ranking />} />
                     <Route path="/resultado" element={<Result />} />
-                    <Route path="/painel" element={<MainPanel />} />
+                    <Route path="/painel" element={<LoggedRedirection><Login /></LoggedRedirection>} />
                     <Route path="/quiz/individual" element={<Quiz />} />
                     <Route path="/quiz/iniciativa" element={<Initiative />} /> 
                     <Route path="/dados" element={<DataShow />} /> 

@@ -25,8 +25,6 @@ const DataShow = () => {
         fetchData()
     },[])
 
-    console.log(data)
-
     if(data){
         return(
             <div className="DataShow">

@@ -194,3 +194,18 @@
     border-top-left-radius: 1rem;
     border-bottom-left-radius: 1rem;
 }
+
+@media screen and (max-width: 490px){
+    .QuizContainer {
+        background-color: #fff;
+        align-items: center;
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        width: 100vw;
+        border-radius: 20px;
+        padding-top: 20px;
+        padding-bottom: 20px;
+        margin: 20px;
+    }
+}

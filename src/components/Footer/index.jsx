@@ -7,11 +7,6 @@ import './style.css'
 const Footer = () => {
     return(
         <div className="Footer">
-
-            
-            
-
-
             <div className="Pall">
                 <div className="FooterP1">
                     <p>© Serra HackClub 2022</p>

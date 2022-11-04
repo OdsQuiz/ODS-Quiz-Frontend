@@ -81,3 +81,22 @@
     font-family: 'sfpromedium';
     font-size: 1.2rem;
 }
+
+@media screen and (max-width: 490px){
+    .MainPanelContainer{
+        background-color: #fff;
+        align-items: center;
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        width: 90vw;
+        border-radius: 20px;
+        padding-top: 2.4rem;
+        padding-bottom: 3rem;
+        background-color: #f2f2f2;
+    }
+
+    .MainPanelContainer span{
+        width: 80vw;
+    }
+}

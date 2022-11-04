@@ -1,0 +1,25 @@
+.ToogleMenuButton{
+    display: none;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    margin-right: 3em;
+}
+
+.ToogleMenuButton:hover{
+    cursor: pointer;
+}
+
+.ToogleMenuButton hr{
+    background-color: #fff;
+    opacity: 1;
+    width: 3em;
+    height: 5px;
+    margin: 5px;
+}
+
+@media screen and (max-width: 950px) {
+    .ToogleMenuButton{
+        display: flex;
+    }
+}

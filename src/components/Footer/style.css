@@ -53,6 +53,34 @@
     height: 100%;
 }
 
+@media screen and (max-width: 490px){
+    .Footer{
+        display: flex;
+        flex-direction: column;
+        height: 18vh;
+    }
+
+    .Pall{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        height: 20vh;
+        width: 100%;
+        
+    }
+
+    .Pall img{
+
+        margin-top: 10%;
+    }
+
+    .Pall p{
+
+        margin-top: 10%;
+    }
+   }
+
 .Pall img{
     width: 8rem;
     height: 100%;

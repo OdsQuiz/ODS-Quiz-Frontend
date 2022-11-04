@@ -1,23 +1,30 @@
 .Header{
-        
-    /* font-family: 'In'; */
+    display: flex;
+    align-items: center;
+    width: 100%;
 
     font-family: 'sfprobold';
     background-color: #00336a;
+    margin: 0px;
 }
 
 .Header-elements{
     display: flex;
+    width: 100%;
     justify-content: space-between;
+    height: 17vh;
+}
+
+.Header-elements .ImageContainer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 3rem;
 }
 
 .Header-elements a img{
     width: 6vw;
-    margin-left: 3rem;
-    
 }
-
-
 
 .Header-elements .linkContainer{
     display: flex;
@@ -41,6 +48,15 @@
     
 }
 
-.Header {
-    margin: 0px;
+@media screen and (max-width: 950px) {
+    .Header-elements .linkContainer{
+        display: none;
+        background-color: red;
+    }
+
+    .Header-elements a img{
+        width: 6rem;
+        margin-left: -1rem;
+        
+    }
 }

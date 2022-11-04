@@ -20,14 +20,11 @@ const Home = () => {
                     <img src={sdgCircle} className='rotating' alt="" />
                 </div>
                 <div className="home-column text-column">
-                    <h2>Descubra o quanto você contribui para o desenvolvimento sustentável no Brasil</h2>
-                    <p>Responda algumas perguntas e descubra o quanto você contribui para as iniciativas da ODS</p>
+                    <h2>Descubra o quanto   a sua comunidade progride para o desenvolvimento sustentável no Brasil</h2>
+                    <p>Responda algumas perguntas e descubra o quanto a sua comunidade progride nos ODS.</p>
                     <Link to='/participar/login' className='home-button'>Responder agora</Link>
                 </div>
             </div>
-            {/* <div className="Banner">
-                <Link to='/participar/login'>Participar</Link>
-            </div> */}
 
             <div className="OdsAll">
                 <div className="OdsContent">
@@ -41,8 +38,6 @@ const Home = () => {
                     <h1>O que são os ODS?</h1>
                     
                     <p>Os Objetivos de Desenvolvimento Sustentável (ODS), também conhecidos como Objetivos Globais, foram adotados pelas Nações Unidas em 2015 como um apelo universal à ação para acabar com a pobreza, proteger o planeta e garantir que até 2030 todas as pessoas desfrutem de paz e prosperidade. Os 17 ODS são integrados – eles reconhecem que a ação em uma área afetará os resultados em outras, e que o desenvolvimento deve equilibrar a sustentabilidade social, econômica e ambiental.</p>
-
-                  
 
                 </div>
             </div>            

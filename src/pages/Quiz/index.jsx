@@ -334,7 +334,7 @@ const Quiz = () => {
                 </div>
 
                 <div className="QuizArea ods13">
-                    <p>17) Os dois principais causadores das mudanças de clima são os gases de efeito estufa (GEE), por exemplo  o  CO2 (gás carbônico) e CH4 (gás metano). Algumas atividades humanas contribuem para a emissão destes gases, como a queima de combustíveis fósseis (energia), agropecuária, indústrias, uso da terra e lixo urbano. O ESTADO DO RIO DE JANEIRO apresentou, em 2016, emissão de 92.318 Gg CO2 e, com destaque para os setores Energia (70%), indústrias (17%) e Lixo (8%). As emissões do Rio de Janeiro representaram 6% das emissões nacionais e 24% da região Sudeste, em 2016. (referência: https://www.gov.br/mcti/pt-br/acompanhe-o-mcti/sirene/arquivos/LIVRORESULTADOINVENTARIO30062021WEB.pdf) assinale qual a opção que você melhor se identifica:
+                    <p>17) Os dois principais causadores das mudanças de clima são os gases de efeito estufa (GEE), por exemplo  o  CO2 (gás carbônico) e CH4 (gás metano). Algumas atividades humanas contribuem para a emissão destes gases, como a queima de combustíveis fósseis (energia), agropecuária, indústrias, uso da terra e lixo urbano. O ESTADO DO RIO DE JANEIRO apresentou, em 2016, emissão de 92.318 Gg CO2 e, com destaque para os setores Energia (70%), indústrias (17%) e Lixo (8%). As emissões do Rio de Janeiro representaram 6% das emissões nacionais e 24% da região Sudeste, em 2016. assinale qual a opção que você melhor se identifica:
                     </p>
                     <div className="tags">
                             <img src={odsIcon13} alt="" />
