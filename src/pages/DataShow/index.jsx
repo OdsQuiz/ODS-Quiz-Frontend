@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from "react";
 import './style.css'
 import 'leaflet/dist/leaflet.css'
-import Ping from "../../assets/ping.svg"
 
 import IniciativesData from "../../components/IniciativesData";
+import markerIconPng from "leaflet/dist/images/marker-icon.png"
+import {Icon} from 'leaflet'
 
 import { MapContainer, TileLayer, useMap, Marker, Popup } from 'react-leaflet'
 
@@ -24,6 +25,8 @@ const DataShow = () => {
         fetchData()
     },[])
 
+    console.log(data)
+
     if(data){
         return(
             <div className="DataShow">
@@ -35,7 +38,10 @@ const DataShow = () => {
                     {data.map((eachData, key) => {
                         if(eachData.lat && eachData.lon){
                             return(
-                                <Marker key={key} position={[eachData.lat, eachData.lon]}>
+                                <Marker 
+                                    key={key} 
+                                    position={[eachData.lat, eachData.lon]}
+                                    icon={new Icon({iconUrl: markerIconPng, iconSize: [25, 41], iconAnchor: [12, 41]})}>
                                     <Popup>
                                         {eachData.name}
                                     </Popup>

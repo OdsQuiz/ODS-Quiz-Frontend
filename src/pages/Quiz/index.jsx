@@ -30,7 +30,7 @@ import { updateUserPoints } from "../../services/api";
 
 const Quiz = () => {
 
-    const [answers, setAnswers] = useState(new Array(17))
+    const [answers, setAnswers] = useState(new Array(22))
     const { user } = useContext(AuthContext)
     const { storeResult } = useContext(ResultContext)
     const navigate = useNavigate()
@@ -44,7 +44,7 @@ const Quiz = () => {
     const sendDataHandler = async () => {
         const auxResults = new Array(17).fill(0)
         var pointsCounter = 0
-        const odsIndividual = [1, 3, 4, 12, 7, 12, 8, 5, 6, 6, 2, 14, 14, 15, 15, 13, 13, 11, 11, 10, 10, 16]
+        const odsIndividual = [1, 3, 4, 12, 7, 12, 8, 5, 6, 6, 2, 14, 14, 13, 15, 13, 13, 11, 11, 10, 10, 16]
 
         for (let i = 0; i < auxResults.length; i++){
             if(answers[i] == '1'){
@@ -66,7 +66,7 @@ const Quiz = () => {
 
         storeResult(auxResults)
 
-        auxResults.map((eachResult, key) =>{
+        auxResults.map((eachResult) =>{
             pointsCounter += eachResult
         })
 
@@ -90,7 +90,7 @@ const Quiz = () => {
                                 opD='d) Superior a 5 salários mínimos.'
                                 opE='e) Não gostaria de responder.'
                                 getAnswers={getAnswers} 
-                                ods={1}/>
+                                index={0}/>
                 </div>
 
                 <div className="QuizArea ods3">
@@ -106,7 +106,7 @@ const Quiz = () => {
                                 opD='d) Conto com todos os tipos de serviço público de saúde, de Postos de Saúde a Hospitais, em condições adequadas de funcionamento e preservação.'
                                 opE='e) Não sei responder.'
                                 getAnswers={getAnswers} 
-                                ods={3}/>
+                                index={1}/>
                 </div>
 
                 <div className="QuizArea ods4">
@@ -122,7 +122,7 @@ const Quiz = () => {
                                 opD='d) Muito bom'
                                 opE='e) Não sei responder.'
                                 getAnswers={getAnswers} 
-                                ods={4}/>
+                                index={2}/>
                 </div>
 
                 <div className="QuizArea ods12">
@@ -138,7 +138,7 @@ const Quiz = () => {
                                 opD='d) Pratico diariamente a separação dos resíduos (recicláveis, orgânicos, itens de logística reversa e rejeito) e encaminho adequadamente cada um deles.'
                                 opE='e) Não sei responder.'
                                 getAnswers={getAnswers} 
-                                ods={12}/>
+                                index={3}/>
                 </div>
 
                 <div className="QuizArea ods7">
@@ -154,7 +154,7 @@ const Quiz = () => {
                                 opD='d) Toda a comunidade em que vivo é energizada por energia solar, e movida a carros elétricos.'
                                 opE='e) Não sei responder.'
                                 getAnswers={getAnswers} 
-                                ods={7}/>
+                                index={4}/>
                 </div>
 
                 <div className="QuizArea ods12">
@@ -170,7 +170,7 @@ const Quiz = () => {
                                 opD='d) Totalmente consciente, compro somente quando há a necessidade e avalio o impacto ambiental da minha compra.'
                                 opE='e) Não sei responder.'
                                 getAnswers={getAnswers} 
-                                ods={12}/>
+                                index={5}/>
                 </div>
 
                 <div className="QuizArea ods8">
@@ -185,7 +185,7 @@ const Quiz = () => {
                                 opC='c) Há a presença de startups, micro empresas, transnacionais e franquias famosas(Ex.: McDonald s, Burguer King, etc)'
                                 opD='d) Comércio forte, marcado por empresas de relevância nacional, internacional, e iniciativas empreendedoras. Presença marcante de empregos formais.'
                                 getAnswers={getAnswers} 
-                                ods={8}/>
+                                index={6}/>
                 </div>
 
                 <div className="QuizArea ods5">
@@ -201,11 +201,11 @@ const Quiz = () => {
                                 opD='d) De dez para mais.'
                                 opE='e) Não sei responder.'
                                 getAnswers={getAnswers} 
-                                ods={5}/>
+                                index={7}/>
                 </div>
 
                 <div className="QuizArea ods6">
-                    <p>10.1) A comunidade em que vive possui acesso à água potável?
+                    <p>9) A comunidade em que vive possui acesso à água potável?
                     </p>
                     <div className="tags">
                             <img src={odsIcon6} alt="" />
@@ -217,11 +217,11 @@ const Quiz = () => {
                                 opD='d) Toda a minha comunidade tem acesso à água potável.'
                                 opE='e) Não sei responder.'
                                 getAnswers={getAnswers} 
-                                ods={6}/>
+                                index={8}/>
                 </div>
 
                 <div className="QuizArea ods6">
-                    <p>10.2)A comunidade em que vive possui acesso a saneamento básico?
+                    <p>10)A comunidade em que vive possui acesso a saneamento básico?
                     </p>
                     <div className="tags">
                             <img src={odsIcon6} alt="" />
@@ -233,7 +233,7 @@ const Quiz = () => {
                                 opD='d) Toda a minha comunidade tem acesso à saneamento básico de qualidade.'
                                 opE='e) Não sei responder.'
                                 getAnswers={getAnswers} 
-                                ods={6}/>
+                                index={9}/>
                 </div>
 
 
@@ -250,7 +250,7 @@ const Quiz = () => {
                                 opD='d) Não conheço pessoas em situação de fome, e conheço um ou mais projetos voltados para a ajuda destas pessoas, possivelmente em outras comunidades.'
                                 opE='e) Não sei responder.'
                                 getAnswers={getAnswers} 
-                                ods={2}/>
+                                index={10}/>
                 </div>
 
                 <div className="QuizArea ods14">
@@ -266,7 +266,7 @@ const Quiz = () => {
                                 opD='d) Estão sempre limpos e despoluídos.'
                                 opE='e) Não tenho ambientes aquáticos próximos.'
                                 getAnswers={getAnswers} 
-                                ods={14}/>
+                                index={11}/>
                 </div>
 
                 <div className="QuizArea ods14">
@@ -282,7 +282,7 @@ const Quiz = () => {
                                 opD='d) Conheço mais de 5.'
                                 opE='e) Não sei responder.'
                                 getAnswers={getAnswers} 
-                                ods={14}/>
+                                index={12}/>
                 </div>
 
                 <div className="QuizArea ods13">
@@ -298,7 +298,7 @@ const Quiz = () => {
                                 opD='d) Conheço mais de 5.'
                                 opE='e) Não sei responder.'
                                 getAnswers={getAnswers} 
-                                ods={13}/>
+                                index={13}/>
                 </div>
 
                 <div className="QuizArea ods15">
@@ -314,7 +314,7 @@ const Quiz = () => {
                                 opD='d) De cinco para mais.'
                                 opE='e) Não sei responder.'
                                 getAnswers={getAnswers} 
-                                ods={15}/>
+                                index={14}/>
                 </div>
 
                 <div className="QuizArea ods13">
@@ -330,7 +330,7 @@ const Quiz = () => {
                                 opD='d) Temos sofrido com algum tipo de catástrofe natural, mais de uma vez no ano.'
                                 opE='e) Não sei responder.'
                                 getAnswers={getAnswers} 
-                                ods={13}/>
+                                index={15}/>
                 </div>
 
                 <div className="QuizArea ods13">
@@ -346,7 +346,7 @@ const Quiz = () => {
                                 opD='d) Sempre busco opções na minha rotina para reduzir as emissões de GEE.'
                                 opE='e) Não sei responder.'
                                 getAnswers={getAnswers} 
-                                ods={13}/>
+                                index={16}/>
                 </div>
 
                 <div className="QuizArea ods11">
@@ -362,7 +362,7 @@ const Quiz = () => {
                                 opD='d) Todas as pessoas na minha comunidade vivem em situação de habitação precária.'
                                 opE='e) Não sei responder.'
                                 getAnswers={getAnswers} 
-                                ods={11}/>
+                                index={17}/>
                 </div>
 
                 <div className="QuizArea ods11">
@@ -378,7 +378,7 @@ const Quiz = () => {
                                 opD='d) Existem várias iniciativas e participo com frequência.'
                                 opE='e) Não sei responder.'
                                 getAnswers={getAnswers} 
-                                ods={11}/>
+                                index={18}/>
                 </div>
 
                 <div className="QuizArea ods10">
@@ -394,7 +394,7 @@ const Quiz = () => {
                                 opD='d) Conheço mais de três.'
                                 opE='e) Não sei responder.'
                                 getAnswers={getAnswers} 
-                                ods={10}/>
+                                index={19}/>
                 </div>
 
                 <div className="QuizArea ods10">
@@ -410,7 +410,7 @@ const Quiz = () => {
                                 opD='d) Todos os dias sofro algum tipo de discriminação.'
                                 opE='e) Não sei responder.'
                                 getAnswers={getAnswers} 
-                                ods={10}/>
+                                index={20}/>
                 </div>
 
                 <div className="QuizArea ods16">
@@ -426,7 +426,7 @@ const Quiz = () => {
                                 opD='d) Todos os dias.'
                                 opE='e) Não sei responder.'
                                 getAnswers={getAnswers} 
-                                ods={16}/>
+                                index={21}/>
                 </div>
 
                 <button onClick={() => sendDataHandler()}>Enviar</button>

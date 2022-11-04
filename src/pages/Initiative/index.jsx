@@ -131,7 +131,7 @@ const Initiative = () => {
             <div className="InitiativeContainer">
                 <InputText index={0} getTextAnswers={getTextAnswers} label="Nome da iniciativa:"/>
                 <InputText index={1} getTextAnswers={getTextAnswers} label="Nome completo do responsável:"/>
-                <InputText index={2} getTextAnswers={getTextAnswers} label="Endereço completo:"/>
+                <InputText index={2} getTextAnswers={getTextAnswers} label="Endereço completo (sem CEP):"/>
                 <InputText index={3} getTextAnswers={getTextAnswers} label="Email do responsável:"/>
                 <InputText index={4} getTextAnswers={getTextAnswers} label="Local de atuação da iniciativa:"/>
                 <InputText index={5} getTextAnswers={getTextAnswers} label="Quantidade de pessoas atendidas:"/>

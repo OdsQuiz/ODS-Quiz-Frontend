@@ -1,14 +1,14 @@
 import React, { useState } from "react";
 import './style.css'
 
-const SelectAnswer = ({getAnswers, ods, opA, opB, opC, opD, opE}) => {
+const SelectAnswer = ({getAnswers, index, opA, opB, opC, opD, opE}) => {
 
     const clickHandler = (value) => {
 
         if(value === 'Selecione sua resposta'){
             value = undefined
         }
-        getAnswers(value, ods-1)
+        getAnswers(value, index)
     }
 
     return(

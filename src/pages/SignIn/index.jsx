@@ -64,7 +64,7 @@ const SignIn = () => {
                 </div>
 
                 <div className="input-area">
-                    <span className="label">Endereço</span> 
+                    <span className="label">Endereço completo (sem CEP)</span> 
                     <input 
                         type="text" 
                         className="inputText"
