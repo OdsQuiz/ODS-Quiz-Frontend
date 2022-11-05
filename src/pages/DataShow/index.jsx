@@ -10,7 +10,7 @@ import { MapContainer, TileLayer, useMap, Marker, Popup } from 'react-leaflet'
 
 import { getIniciatives } from "../../services/api";
 
-const center = [-22.906930495454464, -43.18279630247476]
+const center = [-22.281719, -42.531901]
 
 const DataShow = () => {
 
@@ -28,7 +28,7 @@ const DataShow = () => {
     if(data){
         return(
             <div className="DataShow">
-                <MapContainer attributionControl={false} style={{width: '99.3vw', height: '60vh'}} center={center} zoom={10} scrollWheelZoom={false} >
+                <MapContainer attributionControl={false} style={{width: '99.3vw', height: '60vh'}} center={center} zoom={13} scrollWheelZoom={false} >
                     <TileLayer
                         url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
                     />
@@ -50,7 +50,21 @@ const DataShow = () => {
                     }
    
                 </MapContainer>
-    
+
+                <div className="Filtro">
+                    <h2>Filtre as iniciativas por município</h2>
+
+                    <div className="Forms">
+                            <select name="Select1" id="Select1">
+                                <option value="1">Selecione um município</option>
+                                <option value="2">Nova Friburgo</option>
+                                <option value="3">Rio de Janeiro</option>
+                            </select>
+                            
+                        
+                    </div>
+                </div>
+                
                 <h1>Mapa das Iniciativas Cadastradas</h1>
                 <div className="DataContainer">
                     {data.map((eachData, key) => {
@@ -60,6 +74,7 @@ const DataShow = () => {
                     })
                     }
                 </div>
+
                 
             </div>
         )

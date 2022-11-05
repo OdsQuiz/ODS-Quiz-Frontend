@@ -12,76 +12,82 @@ import { getIniciatives, getUsers } from "../../services/api";
 
 const Ranking = () => {
 
-    const [dataUsers, setDataUsers] = useState()
-    const [dataIniciatives, setDataIniciatives] = useState()
-
+    const [userAverage, setUserAverage] = useState()
+    const [iniciativesAverage, setIniciativesAverage] = useState()
+    const [nivelComunidade, setNivelComunidade] = useState()
+    const [nivelIniciatives, setNivelIniciatives] = useState('28%')
 
     useEffect(() => {
         const fetchData = async () => {
+            let sumUser = 0
+            let sumIniciatives = 0
+            let total = 22 * 400
+
             const requestUser = await getUsers()
             const requestIniciatives = await getIniciatives()
-    
-            setDataUsers(requestUser.data)
-            setDataIniciatives(requestIniciatives.data)
+
+            requestUser.data.map((eachUser) => {
+                sumUser += eachUser.points
+            })
+
+            requestIniciatives.data.map((eachIniciatives) => {
+                sumIniciatives += eachIniciatives.points
+            })
+
+            let averageUser = sumUser / requestUser.data.length
+            let averageIniciatives = sumIniciatives /requestIniciatives.data.length
+
+            
+            setUserAverage(averageUser)
+            setIniciativesAverage(averageIniciatives)
+
+            setNivelComunidade(`${(averageUser/total) * 100}%`)
+            // setNivelIniciatives(`${(averageIniciatives/total) * 100}%`)
         }
 
         fetchData()
     },[])
 
+    console.log(nivelComunidade)
+    console.log(nivelIniciatives)
     
-
-    if(dataUsers && dataIniciatives){
+    if(nivelComunidade && userAverage && iniciativesAverage){
         return(
-            <div className="Ranking">
-                <div className="RankTextImage">
-                    <img src={Rank} alt="" />
-                    <h1>Ranking </h1>
-                </div>
-                
-                <div className="RanksContainer">
-                    <div className="RankA">
-
-                        <div className="ImgText">
-                            <img src={People} alt="" />
-                            <span>Comunidade</span>
+            <div className="termometro-container">
+                <div className="termometro-content">
+                    <div className="termometro-title">
+                        Comunidade
+                    </div>
+                    <div className="termometro-column">
+                        <div className="termometro-medidas">
+                            <span>MÁX</span>
+                            <span>MIN</span>
+                        </div>
+                        <div className="termometro">
+                            <div className="nivel-media-comunidade" style={{height: nivelComunidade}}></div>
                         </div>
                         
-                        <div className="Rank">
-                            
-                            {dataUsers.map((eachUser, key) => {
-                                if(key < 5){
-                                    return(
-                                        <RankingLine key={key} position={key+1} name={eachUser.name} points={eachUser.points}/>
-                                    )
-                                }
-                            })}
-                        </div>
+                            <span className="termometro-media-display" style={{height: nivelComunidade}}><p>Média: {parseInt(userAverage)}</p></span>
+                        
                     </div>
-
-
-                    <div className="RankA">
-                        <div className="ImgText">
-                            <img src={EnterPrise} alt="" />Instituição
-                        </div>
-
-                        <div className="Rank">
-                            {dataIniciatives.map((eachIniciatives, key) => {
-                                if(key < 5){
-                                    return(
-                                        <RankingLine key={key} position={key+1} name={eachIniciatives.name} points={eachIniciatives.points}/>
-                                    )
-                                }
-                            })}
-                        </div>
-                    </div>      
                 </div>
+                <div className="termometro-content">
+                <div className="termometro-title">
+                        Instituição
+                    </div>
+                    <div className="termometro-column">
+                        <div className="termometro-medidas">
+                            <span>MÁX</span>
+                            <span>MIN</span>
+                        </div>
+                        <div className="termometro">
+                            <div className="nivel-media-instituicao" style={{height: nivelIniciatives}}></div>
+                        </div>
 
-                {/* <div className="BulletinBoard">
-                    <div className="BulletinBoardIn">
-                        <img src={infoLogo} alt="" />
-                        <p>As colocações acima são referentes ao quiz dos ODS. Nesse sentido, os primeiros colocados são os que melhores pontuaram na perguntas referentes as ODS de sua rotina. </p>
-                    </div> 
-                </div> */}
+                        <span className="termometro-media-display" style={{height: nivelIniciatives}}><p>Média: {parseInt(iniciativesAverage)}</p></span>
+                    </div>
+                </div>
+                
             </div>
         )
     }

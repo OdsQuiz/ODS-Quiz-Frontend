@@ -175,3 +175,34 @@
  }
 
 
+ .Result .termometro-content{
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 80vw;
+
+ }
+
+.Result .termometro-content{
+    display: flex;
+}
+
+.Result .termometro-content .termometro-column{
+    display: flex;
+    height: 100%;
+    padding: 2rem;
+}
+
+.nivel-media-user{
+    width: 4rem;
+    position: absolute;
+    margin-bottom: 0.2rem;
+    background-color: blue;
+    height: 20%;
+    border-bottom-left-radius: 5rem;
+    border-bottom-right-radius: 5rem;
+}
+
+.Result .nivel-media-comunidade{
+    height: 40%;
+}

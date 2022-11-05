@@ -1,269 +1,107 @@
-.RanksContainer {
-    display: flex;
-    justify-content: center;
-    align-items: flex-start;
-}
-
-.Rank {
+.termometro-container{
+    width: 99.3vw;
+    min-height: 100vh;
+    margin: 0;
     display: flex;
     align-items: center;
-    justify-content: flex-start;
-    flex-direction: column;
-    width: 100%;
-    
-    border-radius: 20px;
-    margin: 5%;
-    margin-left: 0px;
+    justify-content: space-evenly;
 }
 
-.RankA {
-    margin: 5%;
-    width: 30%;
-    text-align: center;
-    background-color: #e9e9e9;
-    
-    
+.termometro-content{
+
+    width: 40vw;
+    height: 80vh;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    margin-bottom: 5rem;
+    background-color: #ececec;
     border-radius: 2rem;
 }
-
-.RankA span{
-    font-family: 'sfpromedium';
-    width: 40%;
-}
-
-h1 {
-    text-align: center;
-}
-
-.ImgText Img{
-    width: 2rem;
-    filter: invert(1);
-    margin-right: 1rem;
-
-}
-
-.ImgText h1 {
-    margin-left: 2%;
-}
-
-.ImgText {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-family: 'sfprobold';
-    font-size: 2rem;
+.termometro-title{
+    background-color: #696969;
+    color: white;
     border-top-left-radius: 2rem;
     border-top-right-radius: 2rem;
-    height: 6rem;
-    background-color: #4f4f4f;
-    color: white;
-}
-
-.RankTextImage {
     display: flex;
-    justify-content: center;
     align-items: center;
-    margin-top: 3rem;
-    margin-bottom: -3rem;
+    justify-content: center;
+    width: 100%;
+    font-size: 2.3rem;
+    font-family: 'sfpromedium';
+    height: 15%;
 }
 
-.RankTextImage img{
-    width: 2.4rem;
-    
+.termometro-medidas{
+    height: 95%;
+    display: flex;
+    flex-direction: column;
+    text-align: right;
+    font-size: 1.3rem;
+    font-family: 'sfprobold';
+    justify-content: space-between;
+    margin-right: 1rem;
 }
 
-.RankTextImage h1 {
-    margin-left: 1%;
+.termometro-container .termometro-column{
+    width: 90%;
+    margin-top: 2rem;
+    height: 85%;
+    display: flex;
+    align-items: end;
+    justify-content: center;
+    border-radius: 2rem;
+    padding-bottom: 2rem;
+}
+
+.termometro-column .media-display-container{
+    height: 80%;
+    background-color: yellow;
+}
+.termometro-column .termometro-media-display{
+    padding-top: 3rem;
+    padding-left: 1rem;
     font-family: 'sfprobold';
 }
 
+.termometro-column .termometro-media-display p{
+    background-color: #696969;
+    padding: 0.7rem;
+    font-size: 1.3rem;
+    color: white;
+    border-radius: 1rem;
+}
 
-.BulletinBoard {
+
+
+.termometro{
+    width: 5rem;
+    height: 100%;
+    border-radius: 5rem;
+    background-color: #cdcdcd;
+    border: 0.3rem solid #696969;
+    overflow: hidden;
     display: flex;
+    align-items: end;
     justify-content: center;
-    align-items: center;
-
+    padding: 0;
 }
 
-.BulletinBoardIn {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border-radius: 7px;
-    height: 10rem;
-    margin-top: -4rem;
+.nivel-media-comunidade{
+    width: 4rem;
+    margin-bottom: 0.2rem;
+    background-color: green;
+    height: 100%;
+    border-bottom-left-radius: 5rem;
+    border-bottom-right-radius: 5rem;
+}
+.nivel-media-instituicao{
+    width: 4rem;
+    margin-bottom: 0.2rem;
+    background-color: green;
+    height: 100%;
+    border-bottom-left-radius: 5rem;
+    border-bottom-right-radius: 5rem;
 }
 
-.BulletinBoardIn img{
-    width: 1.4rem;
-
-}
-
-.BulletinBoardIn p{
-    font-size: 1rem;
-    font-family: 'sfpromedium';
-    margin: 0;
-
-}
-
-@media screen and (max-width: 490px){
-    .RanksContainer {
-        display: flex;
-        justify-content: center;
-        align-items: flex-start;
-        flex-direction: column;
-        margin-top: 4rem;
-     
-    }
-    .Rank {
-        display: flex;
-        align-items: center;
-        justify-content: flex-start;
-        flex-direction: column;
-        width: 90vw;
-        
-        
-        border-radius: 20px;
-    }
-    .RankA {
-        width: 90vw;
-        text-align: center;
-        background-color: #e9e9e9;
-        
-        
-        border-radius: 2rem;
-    }
-
-    .RankA {
-        width: 90vw;
-        text-align: center;
-        background-color: #e9e9e9;
-        
-        
-        border-radius: 2rem;
-    }
-    
-    h1 {
-        text-align: center;
-    }
-    
-    .ImgText Img{
-        width: 2rem;
-        filter: invert(1);
-        margin-right: 1rem;
-    
-    }
-    
-    .ImgText {
-        display: flex;
-        width: 90vw;
-        justify-content: center;
-        align-items: center;
-        font-family: 'sfprobold';
-        font-size: 2rem;
-        border-top-left-radius: 2rem;
-        border-top-right-radius: 2rem;
-        height: 6rem;
-        background-color: #4f4f4f;
-        color: white;
-    }
-    
-    .RankTextImage {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        margin-top: 3rem;
-        margin-bottom: -3rem;
-    }
-    
-    .RankTextImage img{
-        width: 2.4rem;
-        
-    }
-    
-    .RankTextImage h1 {
-        font-family: 'sfprobold';
-    }
-}
-
-@media screen and (max-width: 900px){
-
-    .RanksContainer {
-        display: flex;
-        justify-content: center;
-        align-items: flex-start;
-        flex-direction: column;
-        margin-top: 4rem;
-     
-    }
-    .Rank {
-        display: flex;
-        align-items: center;
-        justify-content: flex-start;
-        flex-direction: column;
-        width: 90vw;
-        
-        
-        border-radius: 20px;
-    }
-    .RankA {
-        width: 90vw;
-        text-align: center;
-        background-color: #e9e9e9;
-        
-        
-        border-radius: 2rem;
-    }
-
-    .RankA {
-        width: 90vw;
-        text-align: center;
-        background-color: #e9e9e9;
-        
-        
-        border-radius: 2rem;
-    }
-    
-    h1 {
-        text-align: center;
-    }
-    
-    .ImgText Img{
-        width: 2rem;
-        filter: invert(1);
-        margin-right: 1rem;
-    
-    }
-    
-    .ImgText {
-        display: flex;
-        width: 90vw;
-        justify-content: center;
-        align-items: center;
-        font-family: 'sfprobold';
-        font-size: 2rem;
-        border-top-left-radius: 2rem;
-        border-top-right-radius: 2rem;
-        height: 6rem;
-        background-color: #4f4f4f;
-        color: white;
-    }
-    
-    .RankTextImage {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        margin-top: 3rem;
-        margin-bottom: -3rem;
-    }
-    
-    .RankTextImage img{
-        width: 2.4rem;
-        
-    }
-    
-    .RankTextImage h1 {
-        font-family: 'sfprobold';
-    }
-
-}

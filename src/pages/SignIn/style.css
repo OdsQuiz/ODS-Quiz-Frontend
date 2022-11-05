@@ -1,3 +1,7 @@
+.SignIn{
+    padding: 3rem;
+}
+
 .SignInComunity {
     background-color: #fff;
     align-items: center;
@@ -8,6 +12,14 @@
     border: 1px solid grey;
     border-radius: 20px;
     padding-top: 20px;
+}
+
+.input-area .label p{
+    color: #6c6c6c; 
+}
+.input-area .label{
+    display: flex;
+    flex-direction: column;
 }
 
 .SignIn .card-login{

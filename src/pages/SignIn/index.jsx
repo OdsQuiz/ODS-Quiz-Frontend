@@ -64,7 +64,8 @@ const SignIn = () => {
                 </div>
 
                 <div className="input-area">
-                    <span className="label">Endereço completo (sem CEP)</span> 
+                    <span className="label">Endereço completo: <p className='input-text-description'>ex.: Rua Teresópolis, 275, Vila Amélia, Nova 
+                Friburgo. (NÃO inclua o CEP)</p></span> 
                     <input 
                         type="text" 
                         className="inputText"

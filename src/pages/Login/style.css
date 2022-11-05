@@ -5,6 +5,7 @@
     min-height: 100vh;
     border: 0;
     background-color: #fff;
+    padding: 2rem;
 }
 
 .Login .card-login{

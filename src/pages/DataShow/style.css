@@ -18,3 +18,30 @@
     justify-content: space-evenly;
     flex-wrap: wrap;
 }
+
+.Forms select {
+    border: 1px solid lightgrey;
+    border-radius: 5px;
+    width: 30vw;
+    height: 5vh;
+}
+
+.Forms {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 1%;
+}
+
+.Filtro{
+    display: flex;
+    background-color: #00336a;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+
+.Filtro h2{
+    margin-left: 10%;
+    color: white;
+}

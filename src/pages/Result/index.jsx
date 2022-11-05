@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useState, useEffect } from "react";
 import './style.css'
 
 import obs1 from '../../assets/SDG-1.svg'
@@ -22,6 +22,7 @@ import obs17 from '../../assets/SDG-17.svg'
 import ODSPoints from "../../components/ODSPoints";
 import { ResultContext } from "../../contexts/results";
 import { Link } from "react-router-dom";
+import { getUsers, getIniciatives } from "../../services/api";
 
 
 
@@ -72,6 +73,10 @@ const Result = () => {
         )
     }
 
+    const [userAverage, setUserAverage] = useState()
+    const [nivelComunidade, setNivelComunidade] = useState()
+    const [nivelUser, setNivelUser] = useState()
+
     return(
         <div className="Result">
             { result ?
@@ -88,6 +93,21 @@ const Result = () => {
                         <RenderMax />
                     </div>
 
+                    <div hidden className="termometro-content">
+                        <div className="termometro-title">
+                            Comunidade
+                        </div>
+                        <div className="termometro-column">
+                        <span className="termometro-media-display" ><p>Sua pontuação: 3080</p></span>
+                            <div className="termometro">
+                                <div className="nivel-media-comunidade" ></div>
+                                <div className="nivel-media-user"></div>
+                            </div>
+                            
+                            <span className="termometro-media-display" ><p>Média: 2345</p></span>
+                            
+                        </div>
+                    </div>
                     <div className="RedirectContainer">
                         <Link to='/ranking'>Ir para Ranking</Link>
                         <Link to='/dados'>Ver base de dados</Link>

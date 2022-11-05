@@ -16,7 +16,7 @@ const Header = () => {
                 <Link to="/" className="ImageContainer"><img src='https://cdn.discordapp.com/attachments/1037486089801306113/1037500528587976784/odsquiztext.png' alt="" /></Link>
                 <div className="linkContainer">
                     <Link to='/'>Home</Link>
-                    <Link to='/ranking'>Ranking</Link>
+                    <Link to='/ranking'>Termômetro</Link>
                     <Link to='/dados'>Iniciativas</Link>
                 </div>
                 <ToogleMenuButton status={toggleMenu} toggle={setToggleMenu}/>
