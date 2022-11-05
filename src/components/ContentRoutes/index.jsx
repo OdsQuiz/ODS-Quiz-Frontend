@@ -15,13 +15,25 @@ import { ResultProvider } from "../../contexts/results";
 
 const ContentRoutes = () => {
     const LoggedRedirection = ({children}) =>{
-        const { authenticated, loading } = useContext(AuthContext)
-        console.log(loading)
-        if(loading){
-            return <div>Carregando...</div>
-        }
+        const { authenticated } = useContext(AuthContext)
+        
         if(authenticated){
             return <Navigate to='/painel' />
+        }
+        else{
+            return(
+                <>
+                  {children}  
+                </>
+            )
+        }
+    }
+
+    const NotLoggedRedirection = ({children}) =>{
+        const { authenticated } = useContext(AuthContext)
+        
+        if(!authenticated){
+            return <Navigate to='/participar/login' />
         }
         else{
             return(
@@ -41,7 +53,7 @@ const ContentRoutes = () => {
                     <Route path="/participar/cadastro" element={<LoggedRedirection><SignIn /></LoggedRedirection>} />
                     <Route path="/ranking" element={<Ranking />} />
                     <Route path="/resultado" element={<Result />} />
-                    <Route path="/painel" element={<MainPanel />} />
+                    <Route path="/painel" element={<NotLoggedRedirection><MainPanel /></NotLoggedRedirection>} />
                     <Route path="/quiz/individual" element={<Quiz />} />
                     <Route path="/quiz/iniciativa" element={<Initiative />} /> 
                     <Route path="/dados" element={<DataShow />} /> 

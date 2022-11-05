@@ -77,7 +77,6 @@ const Result = () => {
             { result ?
                 <>
                     <h1 className="result-title">Resultados</h1>
-                    <p>Pontuação Total: </p>
                     <div className="Points">
                         {images.map((image, key) => {
                             return <ODSPoints key={key} image={image} points={result[key] == 0 ? 'Não obteve pontos' : `${result[key]} pontos`} color={colors[key]} />
@@ -93,7 +92,6 @@ const Result = () => {
                         <Link to='/ranking'>Ir para Ranking</Link>
                         <Link to='/dados'>Ver base de dados</Link>
                     </div>
-                   
                 </>
                 :
                 null
