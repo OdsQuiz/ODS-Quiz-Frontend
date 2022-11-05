@@ -223,6 +223,39 @@
     width: 70vw;
     text-align: justify;
   }
+
+  .Home .home-row{
+    display: flex;
+    flex-direction: column;
+    width: 100vw;
+    height: auto;
+    justify-content: center;
+    align-items: center;
+  
+  }
+
+  .Home .img-column{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    margin-top: -3rem;
+ }
+
+ .Home .text-column{
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  width: 90vw;
+  height: auto;
+  margin-bottom: 5rem;
+}
+
+.Home .img-column img{
+  height: 70vw;
+  
+}
+
  }
 
 

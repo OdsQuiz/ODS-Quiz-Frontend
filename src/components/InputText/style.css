@@ -17,6 +17,10 @@
     width: 95%;
 }
 
+.InputText label p{
+    color: #6c6c6c; 
+}
+
 .InputText input{
     width: 95%;
     border-radius: 7px;

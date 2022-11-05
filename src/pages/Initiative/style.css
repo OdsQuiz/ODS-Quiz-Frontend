@@ -55,3 +55,18 @@
     transition: 0.3s;
     color: #fff;
 }
+
+@media screen and (max-width: 490px){
+    .InitiativeContainer {
+        background-color: #f0f0f0;
+        align-items: center;
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        width: 90vw;
+        border-radius: 20px;
+        padding-top: 20px;
+        padding-bottom: 20px;
+        margin: 20px;
+    }
+}

@@ -40,6 +40,30 @@
 
 }
 
+@media screen and (max-width: 900px) {
+    .IniciativeContent{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        height: auto;
+        text-align: center;
+    }
+
+    .IniciativeColumn p{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .IniciativeColumn span{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+}
+
+
+
 .IniciativesData .IniciativeContent div div p{
     font-family: 'sfpromedium';
     margin: 0;

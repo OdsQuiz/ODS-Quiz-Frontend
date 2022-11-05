@@ -2,15 +2,16 @@ import React from "react";
 import { Link } from "react-router-dom";
 import './style.css'
 
-const MobileMenu = () => {
+const MobileMenu = ({ status, toggle }) => {
     return(
         <div className="MobileMenu">
-            <Link to='/participar/cadastro'>Junte-se a nós</Link>
-            <Link to='/participar/login'>Entrar</Link>
-            <Link to='/painel'>Minha Conta</Link>
-            <Link to='/'>Home</Link>
-            <Link to='/ranking'>Ranking</Link>
-            <Link to='/dados'>Iniciativas</Link>
+            <Link to='/' onClick={() => toggle(!status)}>Home</Link>
+            <Link to='/ranking' onClick={() => toggle(!status)}>Ranking</Link>
+            <Link to='/dados' onClick={() => toggle(!status)}>Iniciativas</Link>
+            {/* <Link to='/participar/cadastro' onClick={() => toggle(!status)}>Junte-se a nós</Link> */}
+            <Link to='/participar/login' onClick={() => toggle(!status)}>Entrar</Link>
+            <Link to='/painel' onClick={() => toggle(!status)}>Minha Conta</Link>
+            
         </div>
     )
 }

@@ -9,12 +9,14 @@
 
 .ODSPoints .TextArea{
     width: 100%;
+    padding-bottom: 20px;
 }
 
 .ODSPoints .TextArea p{
     text-align: start;
     color: #fff;
     font-family: 'sfproregular';
+    
      
 }
 
@@ -39,8 +41,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 40%;
-    height: 6vh;
+    width: 50%;
     border-radius: 20px;
     border: 1px solid #fff;
     margin-top: 20px;
@@ -66,15 +67,51 @@
 }
 
 @media screen and (max-width: 900px){
+    .ODSPoints .TextArea{
+        width: 100vw;
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+    }
+    
     .ODSPoints .TextArea p{
-        width: 80%;
+        width: 100%;
+        margin: 0;
+        text-align: center;
     }
 
     .ODSPoints .TextArea h1{
-        width: 80%;
+        width: 100%;
+        margin: 0;
+        
+        text-align: center;
     }
 
     .ODSPoints .TextArea a{
         font-size: 10px;
     }
+
+    .ODSPoints .ods-points-display{
+       margin: 0;
+       font-size: 1.3rem;
+       width: 50%;
+       font-family: 'sfprobold';
+    }
+
+    .ODSPoints .TextArea a{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 90%;
+        height: 6vh;
+        border-radius: 20px;
+        border: 1px solid #fff;
+        margin-top: 20px;
+        font-size: 1rem;
+        cursor: pointer;
+        text-decoration: none;
+        color: #fff;
+    }
+
+    
 }

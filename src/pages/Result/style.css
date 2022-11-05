@@ -68,5 +68,110 @@
     transition: 0.7s;
  }
 
+ @media screen and (max-width: 490px){
+    .Result {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        margin-top: 10px;
+        min-height: 100vh;
+    }
+    
+    .Result .result-title{
+        font-family: 'sfprobold';
+        width: 100%;
+        height: 10vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    
+    .Result .Points {
+        display: grid;
+        grid-template-columns: auto;
+        margin-left: 5%;
+        margin-right: 5%;
+    }
+    
+    .ResultDetail {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        width: 80%;
+    
+        
+        
+    }
+    
+    .ResultDetail h2{
+        font-family: 'sfprobold';
+        margin-top: 3rem;
+    }
+    
+    .Result .RedirectContainer{
+        /* background-color: red; */
+        width: 100%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+    
+    .Result .RedirectContainer a{
+        text-align: center;
+        border-radius: 20px;
+        border: 3px solid #037DCC;
+        font-size: 20px;
+        padding: 20px 30px;
+        background-color: #fff;
+        font-weight: 500;
+        text-decoration: none;
+        color: #000;
+        margin: 20px;
+    }
+    
+    .Result .RedirectContainer a:hover{
+        background-color: #037DCC;
+        color: #fff;
+        transition: 0.7s;
+     }
+
+     .ResultDetail {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        width: 90vw;
+
+        
+    }
+    .ResultDetail .ODSPoints{
+        padding-top: 2rem;
+        padding-bottom: 2rem;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    .ResultDetail .ODSPoints .TextArea{
+        width: 100%;
+        
+    }
+    .ResultDetail .ODSPoints h1{
+        font-size: 1.5rem;
+        text-align: center;
+        margin-left: 3rem;
+        width: 90vw;
+    }
+
+    .ResultDetail .ODSPoints p{
+       width: 50vw;
+       
+       margin: 0;
+       transform: scale(0.8);
+    }
+ }
 
 

@@ -23,9 +23,9 @@ const MainPanel = () => {
                     <img src={HackLogo} />
                     <p className="panel-username">Olá, seja bem vindo(a) {user.name}!</p>
 
-                    <span>Responda ao formulário individual ou cadastre uma iniciativa</span>
+                    <span>Responda ao quiz ou cadastre uma iniciativa</span>
 
-                    <Link to='/quiz/individual'>Formulário Individual</Link>
+                    <Link to='/quiz/individual'>Quiz</Link>
                     <Link to='/quiz/iniciativa'>Cadastrar Iniciativa</Link>
                     {/* <Link>Minhas Iniciativas</Link> */}
 

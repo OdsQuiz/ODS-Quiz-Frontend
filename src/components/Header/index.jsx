@@ -9,7 +9,7 @@ import './style.css'
 
 const Header = () => {
     const [toggleMenu, setToggleMenu] = useState(false)
-    
+
     return(
         <div className="Header">
             <div className="Header-elements">
@@ -23,7 +23,7 @@ const Header = () => {
                 
                 
                 {toggleMenu ?
-                    <MobileMenu />
+                    <MobileMenu status={toggleMenu} toggle={setToggleMenu}/>
                     :
                     null
                 }

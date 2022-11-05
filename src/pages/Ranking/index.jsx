@@ -14,12 +14,26 @@ const Ranking = () => {
 
     const [dataUsers, setDataUsers] = useState()
     const [dataIniciatives, setDataIniciatives] = useState()
+    const [usersAveragePoints, setUsersAveragePoints] = useState()
+    const [iniciativesAveragePoints, setIniciativesAveragePoints] = useState()
 
 
     useEffect(() => {
         const fetchData = async () => {
+            let averageUser = 0
+            let averageIniciative = 0
+
             const requestUser = await getUsers()
             const requestIniciatives = await getIniciatives()
+
+            requestUser.data.map((eachUser) => {
+                averageUser += eachUser.points
+            })
+    
+            requestIniciatives.data.map((eachUser) => {
+                averageIniciative += eachUser.points
+            })
+    
             setDataUsers(requestUser.data)
             setDataIniciatives(requestIniciatives.data)
         }
@@ -27,7 +41,9 @@ const Ranking = () => {
         fetchData()
     },[])
 
-    if(dataUsers && dataIniciatives){
+    
+
+    if(dataUsers && dataIniciatives && usersAveragePoints && iniciativesAveragePoints){
         return(
             <div className="Ranking">
                 <div className="RankTextImage">
@@ -38,13 +54,20 @@ const Ranking = () => {
                 <div className="RanksContainer">
                     <div className="RankA">
 
-                        <div className="ImgText"><img src={People} alt="" />Comunidade</div>
+                        <div className="ImgText">
+                            <img src={People} alt="" />
+                            <span>Comunidade</span>
+                        </div>
+                        <span>Pontuação Média: {usersAveragePoints}</span>
                         
                         <div className="Rank">
+                            
                             {dataUsers.map((eachUser, key) => {
-                                return(
-                                    <RankingLine position={key+1} name={eachUser.name} points={eachUser.points}/>
-                                )
+                                if(key < 5){
+                                    return(
+                                        <RankingLine key={key} position={key+1} name={eachUser.name} points={eachUser.points}/>
+                                    )
+                                }
                             })}
                         </div>
                     </div>
@@ -54,12 +77,15 @@ const Ranking = () => {
                         <div className="ImgText">
                             <img src={EnterPrise} alt="" />Instituição
                         </div>
+                        <span>Pontuação Média: {iniciativesAveragePoints}</span>
 
                         <div className="Rank">
-                        {dataIniciatives.map((eachIniciatives, key) => {
-                                return(
-                                    <RankingLine position={key+1} name={eachIniciatives.name} points={eachIniciatives.points}/>
-                                )
+                            {dataIniciatives.map((eachIniciatives, key) => {
+                                if(key < 5){
+                                    return(
+                                        <RankingLine key={key} position={key+1} name={eachIniciatives.name} points={eachIniciatives.points}/>
+                                    )
+                                }
                             })}
                         </div>
                     </div>      

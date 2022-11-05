@@ -13,7 +13,7 @@ const ODSPoints = ({image, points, color, description, id}) => {
                     <a target="_blank" href={`https://odsbrasil.gov.br/objetivo/objetivo?n=${id}`}>Estágio Atual no Brasil e indicadores</a>
                 </div>
                 :
-                <p>{points}</p>
+                <p className='ods-points-display'>{points}</p>
             }</span>
            
         </div>

@@ -54,7 +54,7 @@ const Result = () => {
     
     const { result } = useContext(ResultContext)
 
-    const RenderMaxMin = () =>{
+    const RenderMax = () =>{
         let max = result[0]
         let idMax = 0
 
@@ -77,15 +77,16 @@ const Result = () => {
             { result ?
                 <>
                     <h1 className="result-title">Resultados</h1>
+                    <p>Pontuação Total: </p>
                     <div className="Points">
                         {images.map((image, key) => {
-                            return <ODSPoints key={key} image={image} points={result[key] == 0 ? 'Não obteve pontos' : `${result[key]} pts`} color={colors[key]} />
+                            return <ODSPoints key={key} image={image} points={result[key] == 0 ? 'Não obteve pontos' : `${result[key]} pontos`} color={colors[key]} />
                         })}
                         
                     </div>
         
                     <div className="ResultDetail">
-                        <RenderMaxMin />
+                        <RenderMax />
                     </div>
 
                     <div className="RedirectContainer">
