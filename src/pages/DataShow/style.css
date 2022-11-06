@@ -8,6 +8,7 @@
 .DataShow h1{
     font-family: 'sfprobold';
     margin-top: 2rem;
+    text-align: center;
 }
 
 .DataShow .DataContainer{

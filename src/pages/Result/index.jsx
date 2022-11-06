@@ -109,9 +109,11 @@ const Result = () => {
                         </div>
                     </div>
                     <div className="RedirectContainer">
-                        <Link to='/ranking'>Ir para Ranking</Link>
+                        <Link to='/ranking'>Ir para o termômetro</Link>
                         <Link to='/dados'>Ver base de dados</Link>
                     </div>
+
+                    <button onClick={() => window.print()}>Imprimir Relatório</button>
                 </>
                 :
                 null

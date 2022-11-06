@@ -4,7 +4,7 @@
     justify-content: center;
     background-color: #00336a;
     flex-direction: column;
-    height: 10vh;
+    min-height: 10vh;
 }
 
 .FooterLogo-Span{
@@ -57,7 +57,6 @@
     .Footer{
         display: flex;
         flex-direction: column;
-        height: 18vh;
     }
 
     .Pall{

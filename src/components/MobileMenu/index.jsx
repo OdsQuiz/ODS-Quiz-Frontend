@@ -6,7 +6,7 @@ const MobileMenu = ({ status, toggle }) => {
     return(
         <div className="MobileMenu">
             <Link to='/' onClick={() => toggle(!status)}>Home</Link>
-            <Link to='/ranking' onClick={() => toggle(!status)}>Ranking</Link>
+            <Link to='/ranking' onClick={() => toggle(!status)}>Termômetro</Link>
             <Link to='/dados' onClick={() => toggle(!status)}>Iniciativas</Link>
             {/* <Link to='/participar/cadastro' onClick={() => toggle(!status)}>Junte-se a nós</Link> */}
             <Link to='/participar/login' onClick={() => toggle(!status)}>Entrar</Link>
