@@ -6,7 +6,7 @@ const SelectAnswer = ({getAnswers, index, opA, opB, opC, opD, opE}) => {
     const clickHandler = (value) => {
 
         if(value === 'Selecione sua resposta'){
-            value = undefined
+            value = 0
         }
         getAnswers(value, index)
     }

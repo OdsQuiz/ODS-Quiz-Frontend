@@ -57,7 +57,8 @@
     .Footer{
         display: flex;
         flex-direction: column;
-    }
+
+    }    }
 
     .Pall{
         display: flex;
