@@ -42,7 +42,7 @@ const Quiz = () => {
     }
 
     const sendDataHandler = async () => {
-        const auxResults = new Array(17).fill(0)
+        const auxResults = new Array(22).fill(0)
         var pointsCounter = 0
         const odsIndividual = [1, 3, 4, 12, 7, 12, 8, 5, 6, 6, 2, 14, 14, 13, 15, 13, 13, 11, 11, 10, 10, 16]
 

@@ -1,10 +1,10 @@
 import React from "react";
 import './style.css'
 
-const IniciativesData = ({ dataObject }) => {
+const IniciativesData = ({ dataObject, color, mainOdsIcon }) => {
     return(
         <div className="IniciativesData">
-             <div className="IniciativeTitle">
+             <div className="IniciativeTitle" style={{backgroundColor: color}}>
                 <h2>{dataObject.name}</h2>
              </div>
              <div className="IniciativeContent">
@@ -14,7 +14,7 @@ const IniciativesData = ({ dataObject }) => {
                 </div>
                 <div className="IniciativeColumn">
                     <div><p>Pontos Obtidos</p><span>{dataObject.points}</span></div>
-                    <div><p>Principal ODS Trabalhado</p><span>{dataObject.mainOds}</span></div>
+                    <div><p>Principal ODS Trabalhado</p><img src={mainOdsIcon} /></div>
                 </div>
              </div>
         </div>

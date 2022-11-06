@@ -6,6 +6,10 @@
     margin-bottom: 6rem;
 }
 
+.IniciativesData .IniciativeColumn img{
+    width: 20%;
+}
+
 .IniciativesData .IniciativeTitle{
     background-color: #00336a;
     color: white;
