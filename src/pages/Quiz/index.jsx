@@ -70,9 +70,9 @@ const Quiz = () => {
             pointsCounter += eachResult
         })
 
-        // const request = await updateUserPoints(user.id, pointsCounter)
+        const request = await updateUserPoints(user.id, pointsCounter)
 
-        // navigate('/resultado')
+        navigate('/resultado')
 
         console.log(auxResults)
     }
