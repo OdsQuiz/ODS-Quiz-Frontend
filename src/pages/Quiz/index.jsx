@@ -30,13 +30,14 @@ import { updateUserPoints } from "../../services/api";
 
 const Quiz = () => {
 
-    const [answers, setAnswers] = useState(new Array(22))
+    const [answers, setAnswers] = useState(new Array(22).fill(0))
     const { user } = useContext(AuthContext)
     const { storeResult } = useContext(ResultContext)
     const navigate = useNavigate()
 
     const getAnswers = (value, index) => {
         var auxArray = [...answers]
+        console.log(auxArray)
         auxArray.splice(index, 1, value)
         setAnswers(auxArray)
     }
