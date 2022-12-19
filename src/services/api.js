@@ -1,7 +1,7 @@
 import axios from "axios";
 
 export const api = axios.create({
-    baseURL: 'https://hack2030-backend.herokuapp.com/'
+    baseURL: 'https://hack2030-backend.onrender.com/'
 })
 
 export const getUsers = async () => {
