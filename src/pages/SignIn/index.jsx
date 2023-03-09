@@ -1,37 +1,47 @@
 import React, { useContext, useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { AuthContext } from "../../contexts/auth";
 import { createUsers } from "../../services/api";
 import HackLogo from '../../assets/hack2030.png'
 import './style.css'
+import { IMaskInput } from "react-imask";
+
+import { verifyCep, getCoordinates } from "../../services/location";
 
 const SignIn = () => {
-
     const [name, setName] = useState('')
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
+    const [cep, setCep] = useState('')
     const [address, setAddress] = useState('')
-    const [terms, setTerms] = useState(false)
     const [error, setError] = useState(false)
     const [tryAgain, setTryAgain] = useState(false)
-    const navigate = useNavigate()
+    const [cepError, setCepError] = useState(false)
     const {login} = useContext(AuthContext)
+    const navigate = useNavigate()
 
     const createNewUser = async () => {
-        if(name && email && password && address && terms){
-            try {
-                const locationIQBaseUrl = `https://us1.locationiq.com/v1/search?key=pk.cf85b52eb08904e43721a3a3bbaf234f&q=${address}&format=json`
-                fetch(locationIQBaseUrl)
-                    .then((request) => request.json())
-                    .then(async (data) =>{
-                        const request = await createUsers(name, email, password, address, parseFloat(data[0].lat), parseFloat(data[0].lat), 0)
+        if(name && email && password && cep && address){
+            const cepExists = await verifyCep(cep, setCepError)
+            if(cepExists){
+                const [lat, lon] = await getCoordinates(address, setTryAgain, setError)
+                await createUsers(name, email, password, address, cep, parseFloat(lat), parseFloat(lon), 0)
+                    .then(async () => {
                         await login(email, password)
-                        navigate('/painel')
+                            .then(() => {
+                                setTryAgain(false)
+                                setError(false)
+                                navigate('/painel')
+                            })
+                            .catch(() => {
+                                setTryAgain(false)
+                                setError(true)
+                            })
                     })
-            } catch (error) {
-                console.log(error)
-                setTryAgain(false)
-                setError(true)
+                    .catch(() => {
+                        setTryAgain(false)
+                        setError(true)
+                    })       
             }
         }
         else{
@@ -64,13 +74,25 @@ const SignIn = () => {
                 </div>
 
                 <div className="input-area">
+                    <span className="label">Entre com o seu CEP <p className='input-text-description'>ex.: 28624800</p></span>
+                    <IMaskInput
+                        className="inputText"
+                        mask="00000000"
+                        value={cep}
+                        onAccept={(value) => setCep(value)}
+                    />
+                    
+                </div>
+
+                <div className="input-area">
                     <span className="label">Endereço completo: <p className='input-text-description'>ex.: Rua Teresópolis, 275, Vila Amélia, Nova 
-                Friburgo. (NÃO inclua o CEP)</p></span> 
+                Friburgo.</p></span> 
                     <input 
                         type="text" 
                         className="inputText"
                         value={address}
-                        onChange={(e) => setAddress(e.target.value)}/>
+                        onChange={(e) => setAddress(e.target.value)}
+                    />
                 </div>
                 
                 <div className="input-area">
@@ -80,15 +102,18 @@ const SignIn = () => {
                         className="inputText"
                         value={password}
                         onChange={(e) => setPassword(e.target.value)}
+                        
                     />
                 </div>
                 
-                <div className="Confirm">
+                {/* <div className="Confirm">
                     <input type="checkbox" className="CheckBox" onClick={() => setTerms(!terms)}/>
                     <label>Eu concordo com os Termos de Serviço e com a Política de Privacidade do Hack2030</label>
-                </div>
+                </div> */}
 
                 <button onClick={() => createNewUser()}>Cadastrar</button>
+                
+                {cepError ? <p>Erro ao verificar CEP, tente novamente...</p> : null}
 
                 {error || tryAgain ?
                     tryAgain ?

@@ -12,7 +12,6 @@ const SelectAnswer = ({getAnswers, index, opA, opB, opC, opD, opE}) => {
 
         
         getAnswers(valueInfo, index)
-        console.log(valueInfo, index)
         
     }, [valueInfo])
 

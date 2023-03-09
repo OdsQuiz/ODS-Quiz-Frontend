@@ -14,9 +14,9 @@ import { AuthContext } from "../../contexts/auth";
 import { ResultProvider } from "../../contexts/results";
 
 const ContentRoutes = () => {
+    const { authenticated, loading, setLoading } = useContext(AuthContext)
+
     const LoggedRedirection = ({children}) =>{
-        const { authenticated } = useContext(AuthContext)
-        
         if(authenticated){
             return <Navigate to='/painel' />
         }

@@ -16,7 +16,7 @@ const Home = () => {
             
             <div className="home-row">
                 <div className="home-column img-column">
-                    <img  class='logo-center-rotating' src="https://cdn.discordapp.com/attachments/1037486089801306113/1037500528248246332/odsquizlogotext.png" alt="" />
+                    <img  className='logo-center-rotating' src="https://cdn.discordapp.com/attachments/1037486089801306113/1037500528248246332/odsquizlogotext.png" alt="" />
                     <img src={sdgCircle} className='rotating' alt="" />
                 </div>
                 <div className="home-column text-column">

@@ -37,7 +37,6 @@ const Quiz = () => {
 
     const getAnswers = (value, index) => {
         var auxArray = [...answers]
-        console.log(auxArray)
         auxArray.splice(index, 1, value)
         setAnswers(auxArray)
     }
@@ -75,7 +74,6 @@ const Quiz = () => {
 
         navigate('/resultado')
 
-        console.log(auxResults)
     }
 
     return(

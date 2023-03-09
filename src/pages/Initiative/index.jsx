@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext, useState } from "react";
 import './style.css'
 
 import InputText from "../../components/InputText";
@@ -6,24 +6,23 @@ import InputCheckBox from "../../components/InputCheckBox";
 import { useNavigate } from "react-router-dom";
 import { ResultContext } from "../../contexts/results";
 import { createIniciative } from '../../services/api'
+import { verifyCep, getCoordinates } from "../../services/location";
 
 const Initiative = () => {
-    const [textAnswers, setTextAnswers] = useState(new Array(6).fill(''))
+    const [name, setName] = useState('')
+    const [nameResponsible, setNameResponsible] = useState('')
+    const [address, setAddress] = useState('')
+    const [cep, setCep] = useState('')
+    const [email, setEmail] = useState('')
+    const [actionPlace, setActionPlace] = useState('')
+    const [peopleAssited, setPeopleAssisted] = useState('')
     const [selectAnswer, setSelectAnswer] = useState('')
     const [checkBoxAnswers, setCheckBoxAnswers] = useState(new Array(4).fill(0))
-    const [points, setPoints] = useState(0)
-    const [mainOds, setMainOds] = useState(0)
+    const [cepError, setCepError] = useState(false)
     const [error, setError] = useState(false)
     const [tryAgain, setTryAgain] = useState(false)
     const { storeResult } = useContext(ResultContext)
-    const [processEnd, setProcessEnd] = useState(null)
     const navigate = useNavigate()
-
-    const getTextAnswers = (value, index) => {
-        var auxArray = [...textAnswers]
-        auxArray.splice(index, 1, value)
-        setTextAnswers(auxArray)
-    }
 
     const getCheckBoxAnswers = (value, index) => {
         var auxArray = [...checkBoxAnswers]
@@ -31,11 +30,13 @@ const Initiative = () => {
         setCheckBoxAnswers(auxArray)
     }
 
-    const processData = () => {
+    const processData = async () => {
         const auxResults = new Array(17).fill(0)
         const pointFactor = 100
-        let pointsCounter = 0
+        let totalPoints = 0
         let odsMaxIndex = 0
+        let mainODS = 0
+        let selectedAnswer = ''
         
         const obsSocial = [3, 3, 4, 4, 4, 4, 5, 5, 5, 10, 10, 10, 10, 16, 16, 16, 16, 16, 16]
         const obsAmbiental = [6, 6, 6, 6, 6, 6, 6, 6, 7, 7, 12, 12, 12, 12, 12, 12, 12, 12, 12, 13, 13, 14, 14, 14, 14, 14, 15, 15, 15, 15, 15, 15, 12, 12, 12]
@@ -69,56 +70,47 @@ const Initiative = () => {
             }
         }
 
-        storeResult(auxResults)
+        await storeResult(auxResults)
 
         if(selectAnswer == '1'){
-            setSelectAnswer('Sociedade Civil')
+           selectedAnswer = 'Sociedade Civil'
         }
         else if(selectAnswer == '2'){
-            setSelectAnswer('Instituição Pública')
+           selectedAnswer = 'Instituição Pública'
         }
         else if(selectAnswer == '3'){
-           setSelectAnswer('Instituição Privada')
+           selectedAnswer = 'Instituição Privada'
         }
 
         auxResults.map((eachResult, key) =>{
             if(eachResult > auxResults[odsMaxIndex]){
                 odsMaxIndex = key
             }
-            pointsCounter += eachResult
+            totalPoints += eachResult
         })
 
-        setPoints(pointsCounter)
-        setMainOds(odsMaxIndex+1)
+        mainODS = odsMaxIndex+1
 
-        return 1
+        return [totalPoints, mainODS, selectedAnswer]
     }
-
-    const sendDataHandler = async () =>{
-        setProcessEnd(processData())
-    }
-
-    useEffect(() =>{
-        createNewIniciative()
-    }, [processEnd])
 
     const createNewIniciative = async () => {
-        if(processEnd === null){
-            return
-        }
-        if(textAnswers[0] && textAnswers[1] && textAnswers[2] && textAnswers[3] && textAnswers[4] && textAnswers[5] && selectAnswer){
-            try {
-                const locationIQBaseUrl = `https://us1.locationiq.com/v1/search?key=pk.cf85b52eb08904e43721a3a3bbaf234f&q=${textAnswers[2]}&format=json`
-                fetch(locationIQBaseUrl)
-                    .then((request) => request.json())
-                    .then(async (data) =>{
-                        const request = await createIniciative(textAnswers[0], textAnswers[1], textAnswers[2], textAnswers[3], textAnswers[4], textAnswers[5], selectAnswer, points, mainOds, parseFloat(data[0].lat), parseFloat(data[0].lat))
-                        navigate('/resultado') 
+        if(name && nameResponsible && address && cep && email && actionPlace && peopleAssited && selectAnswer){
+            const [points, mainODS, selectedAnswer] = await processData()
+            const cepExists = await verifyCep(cep, setCepError)
+            if(cepExists){
+                const [lat, lon] = await getCoordinates(address, setTryAgain, setError)
+
+                await createIniciative(name, nameResponsible, address, cep, email, actionPlace, peopleAssited, selectedAnswer, points, mainODS, parseFloat(lat), parseFloat(lon))
+                    .then(() => {
+                        setTryAgain(false)
+                        setError(false)
+                        navigate('/resultado')
                     })
-            } catch (error) {
-                console.log(error)
-                setTryAgain(false)
-                setError(true)
+                    .catch((e) => {
+                        setTryAgain(false)
+                        setError(true)
+                    })
             }
         }
         else{
@@ -129,13 +121,14 @@ const Initiative = () => {
     return(
         <div className="Initiative">
             <div className="InitiativeContainer">
-                <InputText index={0} getTextAnswers={getTextAnswers} label="Nome da iniciativa:"/>
-                <InputText index={1} getTextAnswers={getTextAnswers} label="Nome completo do responsável:"/>
-                <InputText index={2} getTextAnswers={getTextAnswers} label="Endereço completo:" description='ex.: Rua Teresópolis, 275, Vila Amélia, Nova 
-                Friburgo. (NÃO inclua o CEP)'/>
-                <InputText index={3} getTextAnswers={getTextAnswers} label="Email do responsável:"/>
-                <InputText index={4} getTextAnswers={getTextAnswers} label="Local de atuação da iniciativa:"/>
-                <InputText index={5} getTextAnswers={getTextAnswers} label="Quantidade de pessoas atendidas:"/>
+                <InputText value={name} setAnswers={setName} label="Nome da iniciativa:"/>
+                <InputText value={nameResponsible} setAnswers={setNameResponsible} label="Nome completo do responsável:"/>
+                <InputText value={address} setAnswers={setAddress} label="Endereço completo:" description='ex.: Rua Teresópolis, 275, Vila Amélia, Nova 
+                Friburgo.'/>
+                <InputText value={cep} setAnswers={setCep} label="CEP:" description='ex.: 28523440' isCep={true}/>
+                <InputText value={email} setAnswers={setEmail} label="Email do responsável:"/>
+                <InputText value={actionPlace} setAnswers={setActionPlace} label="Local de atuação da iniciativa:"/>
+                <InputText value={peopleAssited} setAnswers={setPeopleAssisted} label="Quantidade de pessoas atendidas:"/>
 
                 <div className="InitiativeArea">
                     <p>Tipo da Instituição organizadora:</p>
@@ -194,7 +187,9 @@ const Initiative = () => {
                     null
                 }       
 
-                <button onClick={() => sendDataHandler()}>Enviar</button>
+                <button onClick={() => createNewIniciative()}>Enviar</button>
+
+                {cepError ? <p>Erro ao verificar CEP, tente novamente...</p> : null}
 
                 {error || tryAgain ?
                     tryAgain ?
