@@ -10,11 +10,14 @@ import Initiative from "../../pages/Initiative";
 import Login from "../../pages/Login";
 import MainPanel from "../../pages/MainPanel";
 import DataShow from "../../pages/DataShow";
+import TermsPrivacy from "../../pages/TermsPrivacy";
 import { AuthContext } from "../../contexts/auth";
 import { ResultProvider } from "../../contexts/results";
 
+import './style.css'
+
 const ContentRoutes = () => {
-    const { authenticated, loading, setLoading } = useContext(AuthContext)
+    const { authenticated } = useContext(AuthContext)
 
     const LoggedRedirection = ({children}) =>{
         if(authenticated){
@@ -56,7 +59,9 @@ const ContentRoutes = () => {
                     <Route path="/painel" element={<NotLoggedRedirection><MainPanel /></NotLoggedRedirection>} />
                     <Route path="/quiz/individual" element={<Quiz />} />
                     <Route path="/quiz/iniciativa" element={<Initiative />} /> 
-                    <Route path="/dados" element={<DataShow />} /> 
+                    <Route path="/dados" element={<DataShow />} />
+                    <Route path="/termos" element={<TermsPrivacy isPrivacy={false}/>} /> 
+                    <Route path="/privacidade" element={<TermsPrivacy isPrivacy={true}/>} /> 
                 </Routes>
             </ResultProvider>
         </div>

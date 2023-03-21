@@ -52,10 +52,7 @@ const Login = () => {
                             onChange={(e) => setPassword(e.target.value)}
                         />
                     </div>
-                    <div className="Confirm">
-                        <input type="checkbox" className="CheckBox"/>
-                        <label> Lembrar Senha</label>
-                    </div>
+                   
                 <button onClick={() => handleLogin()}>Entrar</button>
                 {error || tryAgain ?
                         tryAgain ?
@@ -71,7 +68,7 @@ const Login = () => {
                 }
                 
                 <Link className='cadastre' to='/participar/cadastro'>Não possui uma conta? Cadastre-se aqui</Link>
-                <Link className="forgot-password">Esqueci minha senha</Link>
+                {/* <Link className="forgot-password">Esqueci minha senha</Link> */}
                 {/* <div className="LoginComunity">
                     <h1>Seja bem vindo ao </h1>
                     <img src={HackLogo} />

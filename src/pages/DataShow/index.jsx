@@ -27,29 +27,39 @@ import { MapContainer, TileLayer, useMap, Marker, Popup } from 'react-leaflet'
 
 import { getIniciatives } from "../../services/api";
 
+import { useContext } from "react";
+import { AuthContext } from "../../contexts/auth";
+import LoadingPage from "../LoadingPage";
+
 const center = [-22.281719, -42.531901]
 
 const DataShow = () => {
+    const { loading, setLoading} = useContext(AuthContext)
     const images = [obs1, obs2, obs3, obs4, obs5, obs6, obs7, obs8, obs9, obs10, obs11, obs12, obs13, obs14, obs15, obs16, obs17]
     const colors = [
         "#E5243B", "#DDA83A", "#4C9F38", "#C5192D", "#FF3A21", "#26BDE2", "#FCC30B", "#A21942", "#FD6925",
         "#DD1367", "#FD9D24", "#BF8B2E", "#3F7E44", "#0A97D9", "#56C02B", "#00689D", "#19486A"
     ]
-    let [data, setData] = useState()
+    const [data, setData] = useState([])
 
     useEffect(() => {
         const fetchData = async () => {
-            const request = await getIniciatives()
-            setData(request.data)
+            setLoading(true)
+            const response = await getIniciatives()
+            setLoading(false)
+            setData(response.data)
         }
-
+        
         fetchData()
     },[])
 
-    if(data){
-        return(
-            <div className="DataShow">
-                <MapContainer attributionControl={false} style={{width: '99.3vw', height: '60vh'}} center={center} zoom={13} scrollWheelZoom={false} >
+    return(
+        <div className="DataShow">
+            {loading ?
+                <LoadingPage />
+                :
+                <>
+                    <MapContainer attributionControl={false} style={{width: '99.3vw', height: '60vh'}} center={center} zoom={13} scrollWheelZoom={false} >
                     <TileLayer
                         url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
                     />
@@ -69,35 +79,34 @@ const DataShow = () => {
                         }
                     })
                     }
-   
-                </MapContainer>
 
-                <div className="Filtro">
-                    <h2>Filtre as iniciativas por município</h2>
+                    </MapContainer>
 
-                    <div className="Forms">
-                            <select name="Select1" id="Select1">
-                                <option value="1">Selecione um município</option>
-                                <option value="2">Nova Friburgo</option>
-                                <option value="3">Rio de Janeiro</option>
-                            </select> 
+                    <div className="Filtro">
+                        <h2>Filtre as iniciativas por município</h2>
+
+                        <div className="Forms">
+                                <select name="Select1" id="Select1">
+                                    <option value="1">Selecione um município</option>
+                                    <option value="2">Nova Friburgo</option>
+                                    <option value="3">Rio de Janeiro</option>
+                                </select> 
+                        </div>
                     </div>
-                </div>
-                
-                <h1>Mapa das Iniciativas Cadastradas</h1>
-                <div className="DataContainer">
-                    {data.map((eachData, key) => {
-                        return(
-                            <IniciativesData key={key} dataObject={eachData} color={colors[parseInt(eachData.mainOds-1)]} mainOdsIcon={images[parseInt(eachData.mainOds-1)]}/>
-                        )
-                    })
-                    }
-                </div>
-
-                
-            </div>
-        )
-    }
+                    
+                    <h1>Mapa das Iniciativas Cadastradas</h1>
+                    <div className="DataContainer">
+                        {data.map((eachData, key) => {
+                            return(
+                                <IniciativesData key={key} dataObject={eachData} color={colors[parseInt(eachData.mainOds-1)]} mainOdsIcon={images[parseInt(eachData.mainOds-1)]}/>
+                            )
+                        })
+                        }
+                    </div>
+                </>
+            }
+        </div>
+    )
 }
 
 export default DataShow

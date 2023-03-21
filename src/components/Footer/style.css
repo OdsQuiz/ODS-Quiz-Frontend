@@ -4,7 +4,7 @@
     justify-content: center;
     background-color: #00336a;
     flex-direction: column;
-    min-height: 10vh;
+    /* min-height: 10vh; */
 }
 
 .FooterLogo-Span{
@@ -17,6 +17,7 @@
 .FooterLogo-Span img {
     width: 80%;
     margin: 10%;
+
 }
 
 .FooterLogo-Span span {
@@ -58,7 +59,7 @@
         display: flex;
         flex-direction: column;
 
-    }    }
+    } 
 
     .Pall{
         display: flex;
@@ -79,7 +80,7 @@
 
         margin-top: 10%;
     }
-   }
+}
 
 .Pall img{
     width: 8rem;
@@ -87,6 +88,17 @@
     display: flex;
     align-items: center;
     justify-content: center;
+}
+
+.Footer .terms-privacy{
+    color: white;
+    font-family: 'sfpromedium';
+    margin: 10px;
+    text-align: center;
+}
+
+.Footer .terms-privacy a{
+    color: white;
 }
 
 .Line {

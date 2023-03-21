@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 import serraLogo from '../../assets/serraLogo.svg'
 
@@ -12,12 +13,18 @@ const Footer = () => {
                     <p>© Serra HackClub 2022</p>
                 </div>   
                 <div>
-                    <a target='_blank' href="https://www.instagram.com/serrahackclub"><img src={serraLogo} alt="" /></a>
+                    <a target='_blank' href="https://www.instagram.com/serrahackclub">
+                        <img src={serraLogo} alt="" />
+                    </a>
                 </div>
                 <div className="FooterP2">
                     <p>Todos os direitos reservados</p>
                 </div> 
             </div>
+            <p className="terms-privacy">
+                <Link to="/termos">Termos de serviço</Link> e <Link to="/privacidade">política de privacidade</Link>
+            </p>
+            
                
             
         </div>

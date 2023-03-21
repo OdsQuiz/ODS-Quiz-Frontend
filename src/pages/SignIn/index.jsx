@@ -1,10 +1,11 @@
 import React, { useContext, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import { AuthContext } from "../../contexts/auth";
 import { createUsers } from "../../services/api";
 import HackLogo from '../../assets/hack2030.png'
 import './style.css'
 import { IMaskInput } from "react-imask";
+
 
 import { verifyCep, getCoordinates } from "../../services/location";
 
@@ -106,10 +107,10 @@ const SignIn = () => {
                     />
                 </div>
                 
-                {/* <div className="Confirm">
+                <div className="Confirm">
                     <input type="checkbox" className="CheckBox" onClick={() => setTerms(!terms)}/>
-                    <label>Eu concordo com os Termos de Serviço e com a Política de Privacidade do Hack2030</label>
-                </div> */}
+                    <label>Eu concordo com os <Link to='/termos'>Termos de Serviço</Link> e com a <Link to="/privacidade">Política de Privacidade</Link> do Hack2030</label>
+                </div>
 
                 <button onClick={() => createNewUser()}>Cadastrar</button>
                 

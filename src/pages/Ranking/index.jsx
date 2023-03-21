@@ -47,9 +47,6 @@ const Ranking = () => {
 
         fetchData()
     },[])
-
-    console.log(nivelComunidade)
-    console.log(nivelIniciatives)
     
     if(nivelComunidade && userAverage && iniciativesAverage){
         return(

@@ -8,7 +8,7 @@ export const AuthContext = createContext()
 export const AuthProvider = ({children}) => {
 
     const [user, setUser] = useState(null)
-    const [loading, setLoading] = useState(true)
+    const [loading, setLoading] = useState(null)
 
     useEffect(() =>{
         const user = localStorage.getItem('user')
@@ -17,8 +17,6 @@ export const AuthProvider = ({children}) => {
             setUser(JSON.parse(user))
             api.defaults.headers.Authorization = `Bearer ${token}`
         }
-        
-        setLoading(false)
     }, [])
 
     const login = async (email, password) => {
@@ -29,7 +27,6 @@ export const AuthProvider = ({children}) => {
 
         api.defaults.headers.Authorization = `Bearer ${response.data.token}`
         setUser(response.data.user)
-
     }
 
     const logout = () => {
