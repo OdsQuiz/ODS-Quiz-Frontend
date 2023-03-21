@@ -5,6 +5,7 @@ import { createUsers } from "../../services/api";
 import HackLogo from '../../assets/hack2030.png'
 import './style.css'
 import { IMaskInput } from "react-imask";
+import LoadingPage from "../LoadingPage";
 
 
 import { verifyCep, getCoordinates } from "../../services/location";
@@ -18,14 +19,18 @@ const SignIn = () => {
     const [error, setError] = useState(false)
     const [tryAgain, setTryAgain] = useState(false)
     const [cepError, setCepError] = useState(false)
+    const [terms, setTerms] = useState(false)
     const {login} = useContext(AuthContext)
     const navigate = useNavigate()
+    const { loading, setLoading } = useContext(AuthContext)
 
     const createNewUser = async () => {
-        if(name && email && password && cep && address){
+        if(name && email && password && cep && address && terms){
             const cepExists = await verifyCep(cep, setCepError)
+            console.log(cepExists)
             if(cepExists){
                 const [lat, lon] = await getCoordinates(address, setTryAgain, setError)
+                setLoading(true)
                 await createUsers(name, email, password, address, cep, parseFloat(lat), parseFloat(lon), 0)
                     .then(async () => {
                         await login(email, password)
@@ -42,7 +47,8 @@ const SignIn = () => {
                     .catch(() => {
                         setTryAgain(false)
                         setError(true)
-                    })       
+                    })
+                setLoading(false)     
             }
         }
         else{
@@ -52,83 +58,87 @@ const SignIn = () => {
 
     return(
         <div className="SignIn">
-            <div className="card-login">
-                <img src={HackLogo} />
-                <h4>Cadastre-se grátis!</h4>
-                <div className="input-area">
-                    <span className="label">Nome Completo</span>
-                    <input 
-                        type="text" 
-                        className="inputText"
-                        value={name}
-                        onChange={(e) => setName(e.target.value)}
-                    />
-                </div>
+            {loading ?
+                <LoadingPage />
+                :
+                <div className="card-login">
+                    <img src={HackLogo} />
+                    <h4>Cadastre-se grátis!</h4>
+                    <div className="input-area">
+                        <span className="label">Nome Completo</span>
+                        <input 
+                            type="text" 
+                            className="inputText"
+                            value={name}
+                            onChange={(e) => setName(e.target.value)}
+                        />
+                    </div>
 
-                <div className="input-area">
-                    <span className="label">Email</span> 
-                    <input 
-                        type="text" 
-                        className="inputText"
-                        value={email}
-                        onChange={(e) => setEmail(e.target.value)}/>
-                </div>
+                    <div className="input-area">
+                        <span className="label">Email</span> 
+                        <input 
+                            type="text" 
+                            className="inputText"
+                            value={email}
+                            onChange={(e) => setEmail(e.target.value)}/>
+                    </div>
 
-                <div className="input-area">
-                    <span className="label">Entre com o seu CEP <p className='input-text-description'>ex.: 28624800</p></span>
-                    <IMaskInput
-                        className="inputText"
-                        mask="00000000"
-                        value={cep}
-                        onAccept={(value) => setCep(value)}
-                    />
-                    
-                </div>
-
-                <div className="input-area">
-                    <span className="label">Endereço completo: <p className='input-text-description'>ex.: Rua Teresópolis, 275, Vila Amélia, Nova 
-                Friburgo.</p></span> 
-                    <input 
-                        type="text" 
-                        className="inputText"
-                        value={address}
-                        onChange={(e) => setAddress(e.target.value)}
-                    />
-                </div>
-                
-                <div className="input-area">
-                    <span className="label">Senha</span> 
-                    <input 
-                        type="password" 
-                        className="inputText"
-                        value={password}
-                        onChange={(e) => setPassword(e.target.value)}
+                    <div className="input-area">
+                        <span className="label">Entre com o seu CEP <p className='input-text-description'>ex.: 28624800</p></span>
+                        <IMaskInput
+                            className="inputText"
+                            mask="00000000"
+                            value={cep}
+                            onAccept={(value) => setCep(value)}
+                        />
                         
-                    />
-                </div>
-                
-                <div className="Confirm">
-                    <input type="checkbox" className="CheckBox" onClick={() => setTerms(!terms)}/>
-                    <label>Eu concordo com os <Link to='/termos'>Termos de Serviço</Link> e com a <Link to="/privacidade">Política de Privacidade</Link> do Hack2030</label>
-                </div>
+                    </div>
 
-                <button onClick={() => createNewUser()}>Cadastrar</button>
-                
-                {cepError ? <p>Erro ao verificar CEP, tente novamente...</p> : null}
+                    <div className="input-area">
+                        <span className="label">Endereço completo: <p className='input-text-description'>ex.: Rua Teresópolis, 275, Vila Amélia, Nova 
+                    Friburgo.</p></span> 
+                        <input 
+                            type="text" 
+                            className="inputText"
+                            value={address}
+                            onChange={(e) => setAddress(e.target.value)}
+                        />
+                    </div>
+                    
+                    <div className="input-area">
+                        <span className="label">Senha</span> 
+                        <input 
+                            type="password" 
+                            className="inputText"
+                            value={password}
+                            onChange={(e) => setPassword(e.target.value)}
+                            
+                        />
+                    </div>
+                    
+                    <div className="Confirm">
+                        <input type="checkbox" className="CheckBox" onClick={() => setTerms(!terms)}/>
+                        <label>Eu concordo com os <Link to='/termos'>Termos de Serviço</Link> e com a <Link to="/privacidade">Política de Privacidade</Link> do Hack2030</label>
+                    </div>
 
-                {error || tryAgain ?
-                    tryAgain ?
-                        <div>
-                            <p>Preencha todos os campos do formulário...</p>
-                        </div>
+                    <button onClick={() => createNewUser()}>Cadastrar</button>
+                    
+                    {cepError ? <p>Erro ao verificar CEP, tente novamente...</p> : null}
+
+                    {error || tryAgain ?
+                        tryAgain ?
+                            <div>
+                                <p>Preencha todos os campos do formulário...</p>
+                            </div>
+                            :
+                            <div>
+                                <p>Ocorreu um erro tente novamente...</p>
+                            </div>
                         :
-                        <div>
-                            <p>Ocorreu um erro tente novamente...</p>
-                        </div>
-                    :
-                    null
-                }
-            </div>
+                        null
+                    }
+                </div>
+            }
         </div>
     )
 }
