@@ -82,7 +82,7 @@ const DataShow = () => {
 
                     </MapContainer>
 
-                    <div className="Filtro">
+                    {/* <div className="Filtro">
                         <h2>Filtre as iniciativas por município</h2>
 
                         <div className="Forms">
@@ -92,7 +92,7 @@ const DataShow = () => {
                                     <option value="3">Rio de Janeiro</option>
                                 </select> 
                         </div>
-                    </div>
+                    </div> */}
                     
                     <h1>Mapa das Iniciativas Cadastradas</h1>
                     <div className="DataContainer">

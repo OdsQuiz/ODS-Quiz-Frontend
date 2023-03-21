@@ -1,6 +1,6 @@
 .termometro-container{
     width: 99.3vw;
-    min-height: 100vh;
+    height: 100%;
     margin: 0;
     display: flex;
     align-items: center;

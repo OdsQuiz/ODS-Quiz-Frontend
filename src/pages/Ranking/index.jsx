@@ -1,21 +1,19 @@
 import React, { useState, useEffect } from "react";
 import './style.css'
 
-import RankingLine from "../../components/RankingLine";
-
-import Agent from "../../assets/agent.svg"
-import People from "../../assets/people.svg"
-import EnterPrise from "../../assets/enterprise.svg"
-import Rank from "../../assets/trophy.svg"
-import infoLogo from "../../assets/info.svg"
 import { getIniciatives, getUsers } from "../../services/api";
+
+import { useContext } from "react";
+import { AuthContext } from "../../contexts/auth";
+import LoadingPage from "../LoadingPage";
 
 const Ranking = () => {
 
-    const [userAverage, setUserAverage] = useState()
-    const [iniciativesAverage, setIniciativesAverage] = useState()
-    const [nivelComunidade, setNivelComunidade] = useState()
+    const [userAverage, setUserAverage] = useState(0)
+    const [iniciativesAverage, setIniciativesAverage] = useState(0)
+    const [nivelComunidade, setNivelComunidade] = useState(0)
     const [nivelIniciatives, setNivelIniciatives] = useState('28%')
+    const { loading, setLoading } = useContext(AuthContext)
 
     useEffect(() => {
         const fetchData = async () => {
@@ -23,8 +21,10 @@ const Ranking = () => {
             let sumIniciatives = 0
             let total = 22 * 400
 
+            setLoading(true)
             const requestUser = await getUsers()
             const requestIniciatives = await getIniciatives()
+            setLoading(false)
 
             requestUser.data.map((eachUser) => {
                 sumUser += eachUser.points
@@ -48,46 +48,50 @@ const Ranking = () => {
         fetchData()
     },[])
     
-    if(nivelComunidade && userAverage && iniciativesAverage){
-        return(
-            <div className="termometro-container">
-                <div className="termometro-content">
+    return(
+        <div className="termometro-container">
+            {loading ?
+                <LoadingPage />
+                :
+                <>
+                    <div className="termometro-content">
+                        <div className="termometro-title">
+                            Comunidade
+                        </div>
+                        <div className="termometro-column">
+                            <div className="termometro-medidas">
+                                <span>MÁX</span>
+                                <span>MIN</span>
+                            </div>
+                            <div className="termometro">
+                                <div className="nivel-media-comunidade" style={{height: nivelComunidade}}></div>
+                            </div>
+                            
+                                <span className="termometro-media-display" style={{height: nivelComunidade}}><p>Média: {parseInt(userAverage)}</p></span>
+                            
+                        </div>
+                    </div>
+                    <div className="termometro-content">
                     <div className="termometro-title">
-                        Comunidade
-                    </div>
-                    <div className="termometro-column">
-                        <div className="termometro-medidas">
-                            <span>MÁX</span>
-                            <span>MIN</span>
+                            Instituição
                         </div>
-                        <div className="termometro">
-                            <div className="nivel-media-comunidade" style={{height: nivelComunidade}}></div>
-                        </div>
-                        
-                            <span className="termometro-media-display" style={{height: nivelComunidade}}><p>Média: {parseInt(userAverage)}</p></span>
-                        
-                    </div>
-                </div>
-                <div className="termometro-content">
-                <div className="termometro-title">
-                        Instituição
-                    </div>
-                    <div className="termometro-column">
-                        <div className="termometro-medidas">
-                            <span>MÁX</span>
-                            <span>MIN</span>
-                        </div>
-                        <div className="termometro">
-                            <div className="nivel-media-instituicao" style={{height: nivelIniciatives}}></div>
-                        </div>
+                        <div className="termometro-column">
+                            <div className="termometro-medidas">
+                                <span>MÁX</span>
+                                <span>MIN</span>
+                            </div>
+                            <div className="termometro">
+                                <div className="nivel-media-instituicao" style={{height: nivelIniciatives}}></div>
+                            </div>
 
-                        <span className="termometro-media-display" style={{height: nivelIniciatives}}><p>Média: {parseInt(iniciativesAverage)}</p></span>
+                            <span className="termometro-media-display" style={{height: nivelIniciatives}}><p>Média: {parseInt(iniciativesAverage)}</p></span>
+                        </div>
                     </div>
-                </div>
-                
-            </div>
-        )
-    }
+                </>
+            }
+            
+        </div>
+    )
 }
 
 export default Ranking
