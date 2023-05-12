@@ -19,7 +19,7 @@ export const verifyCep = async (cep, setCepError) => {
 }
 
  export const getCoordinates = async (address, setTryAgain, setError) => {
-    const locationIQBaseUrl = `https://us1.locationiq.com/v1/search?key=pk.cf85b52eb08904e43721a3a3bbaf234f&q=${address}&format=json`
+    const locationIQBaseUrl = `https://us1.locationiq.com/v1/search?key=pk.a99128e5faf493a362164a3f34b06554&q=${address}&format=json`
 
     return fetch(locationIQBaseUrl)
         .then((request) => request.json())
