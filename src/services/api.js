@@ -1,7 +1,7 @@
 import axios from "axios";
 
 export const api = axios.create({
-    baseURL: 'https://hack2030-backend.onrender.com/'
+    baseURL: 'https://hack2030-backend-ptux.onrender.com/'
     // baseURL: 'http://localhost:5000'
 })
 
